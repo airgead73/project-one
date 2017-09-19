@@ -18,15 +18,20 @@ var name = "";
 var username = "";
 var password = "";
 
-name = "maria";
-username = "mra";
-password = "pass";
+$("#execute-request-button").on("click", function(){
+  event.preventDefault();
+
+name = $("#name").val().trim();
+username = $("#new-un").val().trim();
+password = $("#new-pwd").val().trim();
 
 database.ref().push({
 name: name,
 username: username,
 password: password,
 added: firebase.database.ServerValue.TIMESTAMP
+})
+
 });
 
 database.ref().on("child_added", function(snapshot){
