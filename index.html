@@ -10,13 +10,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
  
 <!-- Firebase Reference -->
-      <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<!-- YOU TUBE API SETUP -->
+<script src="assets/js/youTube.js"></script>
 </head>
 <body>
 <div class="page">
   <header>
     <h1>LOGO</h1>
-    <a href="#log">sign up / log in</a> </header>
+    <button id="execute-request-button">sign up / log in</button> </header>
   <main>
     <form>
       <fieldset>
@@ -50,9 +52,12 @@
     		<input id="new-pwd" type="text">
     	</fieldset>
     </form>
-    
- 
     	
+    </section>
+
+    <section>
+      <h1>Videos</h1>
+      <div id="results"></div>
     </section>
   </main>
 </div>
@@ -60,5 +65,11 @@
   <p><small>&copy; 2017 MADS | powered by <a href="https://www.musixmatch.com"> www.musixmatch.com</a></small></p>
 </footer>
 <script type="application/javascript" src="assets/js/app.js"></script>
+
+<!-- YOU TUBE API LIBRARY -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script async defer src="https://apis.google.com/js/api.js" 
+      onload="this.onload=function(){};handleClientLoad()" 
+      onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 </body>
 </html>
