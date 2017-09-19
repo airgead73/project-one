@@ -10,6 +10,7 @@ var config = {
     messagingSenderId: "112492288457"
 };
 
+<<<<<<< HEAD
 firebase.initializeApp(config);
 
 var database = firebase.database();
@@ -28,6 +29,26 @@ username: username,
 password: password,
 added: firebase.database.ServerValue.TIMESTAMP
 })
+=======
+//firebase.initializeApp(config);
+//
+//var database = firebase.database();
+//
+//var name = "";
+//var username = "";
+//var password = "";
+//
+//name = "maria";
+//username = "mra";
+//password = "pass";
+//
+//database.ref().push({
+//name: name,
+//username: username,
+//password: password,
+//firstAdded: firebase.database.ServerValue.TIMESTAMP
+//})
+>>>>>>> 0696b3c645fa4e75f01b0e37d0434e3bde85b420
 
 database.ref().on("child_added", function(snapshot){
 	var sv = snapshot.val();
