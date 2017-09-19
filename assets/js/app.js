@@ -26,6 +26,15 @@ database.ref().push({
 name: name,
 username: username,
 password: password,
-firstAdded: firebase.database.ServerValue.TIMESTAMP
+added: firebase.database.ServerValue.TIMESTAMP
 })
 
+database.ref().on("child_added", function(snapshot){
+	var sv = snapshot.val();
+
+	console.log(sv);
+	console.log(snapshot.key);
+	console.log(sv.name);
+	console.log(sv.username);
+	console.log(sv.password);
+});
