@@ -6,7 +6,11 @@
     name="viewport" />
 <title>project 1 practice</title>
 <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<!--jquery-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ 
+<!-- Firebase Reference -->
+      <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
 </head>
 <body>
 <div class="page">
@@ -26,15 +30,28 @@
     	<fieldset>
     		<legend>log in</legend>
     		<label for="un">username</label>
+    		<input id="un" type="text">
     		
+    		<label for="pwd">password</label>
+    		<input id="pwd" type="text">
     	</fieldset>
     </form>
     <span>or</span>
-    <form class="user-form" id="user-signin">
+    <form>
     	<fieldset>
     		<legend>sign up</legend>
+    		<label for="name">name</label>
+    		<input id="name" type="text">
+    		
+    		<label for="new-un">username</label>
+    		<input id="new-un" type="text">
+    		
+    		<label for="new-pwd">password</label>
+    		<input id="new-pwd" type="text">
     	</fieldset>
     </form>
+    
+ 
     	
     </section>
   </main>

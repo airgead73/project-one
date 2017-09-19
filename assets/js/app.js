@@ -10,22 +10,22 @@ var config = {
     messagingSenderId: "112492288457"
 };
 
-firebase.initializeApp(config);
-
-var database = firebase.database();
-
-var name = "";
-var username = "";
-var password = "";
-
-name = "maria";
-username = "mra";
-password = "pass";
-
-database.ref().push({
-name: name,
-username: username,
-password: password,
-firstAdded: firebase.database.ServerValue.TIMESTAMP
-})
+//firebase.initializeApp(config);
+//
+//var database = firebase.database();
+//
+//var name = "";
+//var username = "";
+//var password = "";
+//
+//name = "maria";
+//username = "mra";
+//password = "pass";
+//
+//database.ref().push({
+//name: name,
+//username: username,
+//password: password,
+//firstAdded: firebase.database.ServerValue.TIMESTAMP
+//})
 
