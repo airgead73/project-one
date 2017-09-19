@@ -1,0 +1,86 @@
+////////////////////////////
+// abstract: colors
+////////////////////////////
+//bootcamp hw 1 colors
+
+//green
+$color1: #4c8a87;
+$color1Lighter: mix(white, $color1, 40%);
+$color1Superlight: mix(white, $color1, 70%);
+$color1Lightest: mix(white, $color1, 90%);
+$color1Darker: mix(black, $color1, 20%);
+$green: #4c8a87;
+$greenLighter: mix(white, $green, 40%);
+$greenSuperlight: mix(white, $green, 70%);
+$greenLightest: mix(white, $green, 90%);
+$greenDarker: mix(black, $green, 20%);
+
+//purple
+$color2: #746a9e;
+$color2Lighter: mix(white, $color2, 40%);
+$color2Superlight: mix(white, $color2, 70%);
+$color2Lightest: mix(white, $color2, 90%);
+$color2Darker: mix(black, $color2, 20%);
+$purple: #746a9e;
+$purpleLighter: mix(white, $purple, 40%);
+$purpleSuperlight: mix(white, $purple, 70%);
+$purpleLightest: mix(white, $purple, 90%);
+$purpleDarker: mix(black, $purple, 20%);
+
+//blue
+$color3: #43496b;
+$color3Lighter: mix(white, $color3, 40%);
+$color3Superlight: mix(white, $color3, 70%);
+$color3Lightest: mix(white, $color3, 90%);
+$color3Darker: mix(black, $color3, 20%);
+$blue: #43496b;
+$blueLighter: mix(white, $blue, 40%);
+$blueSuperlight: mix(white, $blue, 70%);
+$blueLightest: mix(white, $blue, 90%);
+$blueDarker: mix(black, $blue, 20%);
+
+//red
+$color4: #ac3f30;
+$color4Lighter: mix(white, $color4, 40%);
+$color4Superlight: mix(white, $color4, 70%);
+$color4Lightest: mix(white, $color4, 90%);
+$color4Darker: mix(black, $color4, 20%);
+$red: #ac3f30;
+$redLighter: mix(white, $red, 40%);
+$redSuperlight: mix(white, $red, 70%);
+$redLightest: mix(white, $red, 90%);
+$redDarker: mix(black, $red, 20%);
+
+//steel
+$color5: #738190;
+$color5Lighter: mix(white, $color5, 40%);
+$color5Superlight: mix(white, $color5, 70%);
+$color5Lightest: mix(white, $color5, 90%);
+$color5Darker: mix(black, $color5, 20%);
+$steel: #738190;
+$steelLighter: mix(white, $steel, 40%);
+$steelSuperlight: mix(white, $steel, 70%);
+$steelLightest: mix(white, $steel, 90%);
+$steelDarker: mix(black, $steel, 20%);
+
+//siena
+$color6: #bc633a;
+$color6Lighter: mix(white, $color6, 40%);
+$color6Superlight: mix(white, $color6, 70%);
+$color6Lightest: mix(white, $color6, 70%);
+$color6Darker: mix(black, $color6, 20%);
+$siena: #bc633a;
+$sienaLighter: mix(white, $siena, 40%);
+$sienaSuperlight: mix(white, $siena, 70%);
+$sienaLightest: mix(white, $siena, 70%);
+$sienaDarker: mix(black, $siena, 20%);
+
+//stop sign red
+$stop: #b01c2e;
+
+//traffic light green
+$go: #27e833;
+
+
+
+

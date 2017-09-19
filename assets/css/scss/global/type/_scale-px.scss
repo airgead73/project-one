@@ -1,0 +1,280 @@
+////////////////////////////
+// scales (px)
+////////////////////////////
+@function px($value) {
+  @return ($value * 16) * 1px;
+}
+
+@mixin bodyScale {
+  font-size: px(1);
+  font-weight: 400;
+  line-height: 1.45;
+  margin-bottom: 1.3em;
+}
+
+$bodyScale: px(1);
+
+@mixin type-head {
+  margin: 1.414em 0 0.5em 0;
+  font-weight: inherit;
+  line-height: 1.2;
+}
+
+// **************** MINOR SECOND ****************
+@mixin h1-s1 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(1.296);
+}
+
+@mixin h2-s1 {
+  @include type-head;
+  font-size: px(1.296);
+}
+
+@mixin h3-s1 {
+  @include type-head;
+  font-size: px(1.138);
+}
+
+@mixin h4-s1 {
+  @include type-head;
+  font-size: px(1.067);
+}
+
+@mixin small-s1 {
+  font-size: 0.937em;
+}
+
+$h1-s1: px(1.296);
+$h2-s1: px(1.296);
+$h3-s1: px(1.138);
+$h4-s1: px(1.067);
+$small-s1: .937em;
+
+// **************** MAJOR SECOND ****************
+@mixin h1-s2 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(1.296);
+}
+
+@mixin h2-s2 {
+  @include type-head;
+  font-size: px(1.296);
+}
+
+@mixin h3-s2 {
+  @include type-head;
+  font-size: px(1.138);
+}
+
+@mixin h4-s2 {
+  @include type-head;
+  font-size: px(1.067);
+}
+
+@mixin small-s2 {
+  font-size: 0.937em;
+}
+
+$h1-s2: px(1.296);
+$h2-s2: px(1.296);
+$h3-s2: px(1.138);
+$h4-s2: px(1.067);
+$small-s2: 0.937em;
+
+// **************** MINOR THIRD ****************
+@mixin h1-s3 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(2.074);
+}
+
+@mixin h2-s3 {
+  @include type-head;
+  font-size: px(1.728);
+}
+
+@mixin h3-s3 {
+  @include type-head;
+  font-size: px(1.44);
+}
+
+@mixin h4-s3 {
+  @include type-head;
+  font-size: px(1.2);
+}
+
+@mixin small-s3 {
+  font-size: 0.88em;
+}
+
+$h1-s3: px(2.074);
+$h2-s3: px(1.728);
+$h3-s3: px(1.44);
+$h4-s3: px(1.2);
+$small-s3: 0.88em;
+
+// **************** MAJOR THIRD ****************
+@mixin h1-s4 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(2.441);
+}
+
+@mixin h2-s4 {
+  @include type-head;
+  font-size: px(1.953);
+}
+
+@mixin h3-s4 {
+  @include type-head;
+  font-size: px(1.563);
+}
+
+@mixin h4-s4 {
+  @include type-head;
+  font-size: px(1.25);
+}
+
+@mixin small-s4 {
+  font-size: 0.8em;
+}
+
+$h1-s4: px(2.441);
+$h2-s4: px(1.953);
+$h3-s4: px(1.563);
+$h4-s4: px(1.25);
+$small-s4: 0.8em;
+
+// **************** PERFECT FOURTH ****************
+@mixin h1-s5 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(2.441);
+}
+
+@mixin h2-s5 {
+  @include type-head;
+  font-size: px(1.953);
+}
+
+@mixin h3-s5 {
+  @include type-head;
+  font-size: px(1.563);
+}
+
+@mixin h4-s5 {
+  @include type-head;
+  font-size: px(1.25);
+}
+
+@mixin small-s5 {
+  font-size: 0.8em;
+}
+
+$h1-s5: px(2.441);
+$h2-s5: px(1.953);
+$h3-s5: px(1.563);
+$h4-s5: px(1.25);
+$small-s5: 0.8em;
+
+// **************** AUGMENTED FOURTH ****************
+@mixin h1-s6 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(3.998);
+}
+
+@mixin h2-s6 {
+  @include type-head;
+  font-size: px(2.827);
+}
+
+@mixin h3-s6 {
+  @include type-head;
+  font-size: px(1.999);
+}
+
+@mixin h4-s6 {
+  @include type-head;
+  font-size: px(1.414);
+}
+
+@mixin small-s6 {
+  font-size: 0.707em;
+}
+
+$h1-s6: px(3.998);
+$h2-s6: px(2.827);
+$h3-s6: px(1.999);
+$h4-s6: px(1.414);
+$small-s6: 0.707em;
+
+// **************** PERFECT FIFTH ****************
+@mixin h1-s7 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(5.063);
+}
+
+@mixin h2-s7 {
+  @include type-head;
+  font-size: px(3.375);
+}
+
+@mixin h3-s7 {
+  @include type-head;
+  font-size: px(2.25);
+}
+
+@mixin h4-s7 {
+  @include type-head;
+  font-size: px(1.5);
+}
+
+@mixin small-s7 {
+  font-size: 0.667em;
+}
+
+$h1-s7: px(5.063);
+$h2-s7: px(3.375);
+$h3-s7: px(2.25);
+$h4-s7: px(1.5);
+$small-s7: 0.667em;
+
+
+// **************** GOLDEN RATIO ****************
+
+//golden ratio
+@mixin h1-s8 {
+  @include type-head;
+  margin-top: 0;
+  font-size: px(6.854);
+}
+
+@mixin h2-s8 {
+  @include type-head;
+  font-size: px(4.236);
+}
+
+@mixin h3-s8 {
+  @include type-head;
+  font-size: px(2.618);
+}
+
+@mixin h4-s8 {
+  @include type-head;
+  font-size: px(1.618);
+}
+
+@mixin small-s8 {
+  font-size: 0.618em;
+}
+
+$h1-s8: px(6.854);
+$h2-s8: px(4.236);
+$h3-s8: px(2.618);
+$h4-s8: px(1.618);
+$small-s8: 0.618em;

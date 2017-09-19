@@ -1,0 +1,36 @@
+////////////////////////////
+// general
+////////////////////////////
+
+$primary: #9e9e9e;
+$secondary: indianred;
+
+//colors
+$primary-light-1: mix(white, $primary, 20%);
+$primary-light-2: mix(white, $primary, 40%);
+$primary-light-3: mix(white, $primary, 60%);
+$primary-light-4: mix(white, $primary, 80%);
+$primary-dark-1: mix(black, $primary, 20%);
+$primary-dark-2: mix(black, $primary, 40%);
+$primary-dark-3: mix(black, $primary, 60%);
+$primary-dark-4: mix(black, $primary, 80%);
+
+$secondary-light-1: mix(white, $secondary, 20%);
+$secondary-light-2: mix(white, $secondary, 40%);
+$secondary-light-3: mix(white, $secondary, 60%);
+$secondary-light-4: mix(white, $secondary, 80%);
+$secondary-dark-1: mix(black, $secondary, 20%);
+$secondary-dark-2: mix(black, $secondary, 40%);
+$secondary-dark-3: mix(black, $secondary, 60%);
+$secondary-dark-4: mix(black, $secondary, 80%);
+//fonts
+
+$head: $helvetica;
+$body: $calibri;
+$accent: $georgia;
+
+// layout
+
+$footerHeight: 30px;
+
+$radius: 4px;

@@ -1,0 +1,11 @@
+////////////////////////////
+// footer
+////////////////////////////
+
+footer {
+	height: $footerHeight;
+	margin-top: -$footerHeight;
+	p {
+		text-align: center;
+	}
+}

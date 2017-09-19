@@ -1,0 +1,169 @@
+////////////////////////////
+// global links
+////////////////////////////
+@mixin link_normal($text, $speed: $durationFast) {
+    &:link {
+        text-decoration: underline;
+        color: $text;
+        word-break: break-all;
+        word-break: break-word;
+        transition: $speed;
+    }
+    &:visited {
+        color: $text;
+    }
+    &:hover {
+        color: mix(black, $text, 20%);
+    }
+    &:focus {
+        outline: 1px dotted $text;
+        outline-offset: 5px;
+    }
+    &:active {
+        outline: none;
+        color: mix(black, $text, 20%);
+    }
+}
+
+@mixin link_dotted($text, $speed: $durationFast) {
+    &:link {
+        text-decoration: none;
+        border-bottom: 1px dotted $text;
+        padding-bottom: 3px;
+        color: $text;
+        word-break: break-all;
+        word-break: break-word;
+        transition: $speed;
+    }
+    &:visited {
+        color: $text;
+    }
+    &:hover {
+        text-decoration: none;
+        border-bottom-style: solid;
+        color: mix(black, $text, 20%);
+    }
+    &:focus {
+        outline: 1px dotted $text;
+        outline-offset: 5px;
+    }
+    &:active {
+        outline: none;
+        color: mix(black, $text, 20%);
+    }
+}
+
+@mixin nav_dotted($text, $speed: $durationFast) {
+    &:link {
+        text-decoration: none;
+        border-bottom: 1px dotted transparent;
+        padding-bottom: 3px;
+        color: $text;
+        word-break: break-all;
+        word-break: break-word;
+        transition: $speed;
+    }
+    &:visited {
+        color: $text;
+    }
+    &:hover {
+        text-decoration: none;
+        border-bottom-color: $text;
+        color: mix(black, $text, 20%);
+    }
+    &:focus {
+        outline: 1px dotted $text;
+        outline-offset: 5px;
+    }
+    &:active {
+        outline: none;
+        border-bottom-style: solid;
+    }
+}
+
+@mixin link_bold($text, $speed: $durationFast) {
+    text-decoration: none;
+    font-weight: 700;
+    color: $text;
+    transition: $speed;
+    &:visited {
+        color: default;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+    &:active {
+        color: mix(black, $text, 20%);
+        text-decoration: underline;
+    }
+    &:focus {
+        outline: 1px dotted $text;
+        outline-offset: 5px;
+    }
+    &:active {
+        outline: none;
+        color: mix(black, $text, 40%);
+    }
+}
+
+@mixin btn($color, $size, $speed: $durationFast) {
+    display: inline-block;
+    font-size: 1em;
+    font-family: $utility;    
+    line-height: 1;
+    box-sizing: content-box;
+    padding: $size;
+    border: 2px solid $color;
+    background-color: $color;
+    color: #fff; 
+    transition: $speed;
+    &:visited {
+        color: #fff;
+        background-color: $color;
+    }
+    &:hover {
+        background-color: mix(black, $color, 20%);
+        border-color: mix(black, $color, 20%);
+        cursor: pointer;
+    }
+    &:focus {
+        outline: 1px dotted $color;
+        outline-offset: 5px;
+    }
+    &:active {
+        outline: none;
+        background-color: #fff;
+        border-color: mix(black, $color, 20%);
+        color: mix(black, $color, 20%);
+    }
+}
+
+@mixin btn-neg($color, $size, $speed: $durationFast) {
+    font-size: 1em;
+    font-family: $utility;    
+    line-height: 1;
+    box-sizing: content-box;
+    padding: $size;
+    border: 2px solid $color;
+    background-color: transparent;
+    color: $color; 
+    transition: $speed;
+    &:visited {
+        color: $color;
+        background-color: transparent;
+    }
+    &:hover {
+        color: mix(black, $color, 20%);
+        border-color: mix(black, $color, 20%);
+    }
+    &:focus {
+        outline: 1px dotted $color;
+        outline-offset: 5px;
+    }
+    &:active {
+        outline: none;
+        background-color: mix(black, $color, 20%);
+        border-color: mix(black, $color, 20%);
+        color: #fff;
+    }
+}

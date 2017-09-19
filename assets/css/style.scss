@@ -1,0 +1,35 @@
+////////////////////////////
+// style
+////////////////////////////
+@import 
+    'scss/global/color/_pallet-1',
+    'scss/global/type/_families',
+    'scss/global/type/_scale-px';
+@import 
+    'scss/global/abstracts/_1-general',
+    'scss/global/abstracts/_2-color',
+    'scss/global/abstracts/_3-type',
+    'scss/global/abstracts/_4-bd-bg',
+	'scss/global/abstracts/_5-layout',
+    'scss/global/abstracts/_6-lists',
+    'scss/global/abstracts/_7-links',
+    'scss/global/abstracts/_8-tables',    
+    'scss/global/abstracts/_9-media',
+    'scss/global/abstracts/_10-screen';
+
+@import
+    'scss/this/_1-general',
+    'scss/this/_2-base',
+    'scss/this/_3-links',
+    'scss/this/_4-lists',
+    'scss/this/_5-tables',
+    'scss/this/_6-images',
+    'scss/this/_7-widgets',
+    'scss/this/_8-header',
+    'scss/this/_9-nav',
+    'scss/this/_10-main',
+    'scss/this/_11-footer',
+    'scss/this/_12-screen';
+
+ 
+
