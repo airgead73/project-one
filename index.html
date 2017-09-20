@@ -5,6 +5,10 @@
 <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
     name="viewport" />
 <title>project 1 practice</title>
+<!--bootstrap css-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!--custom css-->
 <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
 <!--jquery-->
@@ -19,7 +23,7 @@
 <div class="page">
   <header>
     <h1>LOGO</h1>
-    <button id="execute-request-button">sign up / log in</button> </header>
+    <button id="open-user">sign up / log in</button> </header>
   <main>
     <form>
       <fieldset>
@@ -29,6 +33,7 @@
     </form>
     <section id="resultsDisplay"> </section>
     <section class="user" id="user">
+    <!-- Log in form for form for those who have already signed up -->
     <form class="user-form" id="user-login">
     	<fieldset>
     		<legend>log in</legend>
@@ -37,9 +42,14 @@
     		
     		<label for="pwd">password</label>
     		<input id="pwd" type="text">
+    		
+    		<button type="reset">reset</button>
+    		<button type="submit">submit</button><!--need id-->
     	</fieldset>
     </form>
-    <span>or</span>
+    <p><span>or</span></p>
+    
+    <!-- sign up for for new users -->
     <form>
     	<fieldset>
     		<legend>sign up</legend>
@@ -51,6 +61,9 @@
     		
     		<label for="new-pwd">password</label>
     		<input id="new-pwd" type="text">
+    		
+   			<button type="reset">reset</button>
+    		<button type="submit" id="execute-request-button">submit</button>    		
     	</fieldset>
     </form>
     	
