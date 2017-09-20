@@ -1,7 +1,7 @@
 // Interface to API's
 
 var apiArray = [
-	['musixmatch', 'http://api.musixmatch.com/ws/1.1/chart.artists.get?', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://api.musixmatch.com/ws/1.1/chart.artists.get?', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
 	['freemusicarchive', 'https://freemusicarchive.org/api/trackSearch?', ''],
 	['youtube', 'https://www.googleapis.com/youtube/v3/search?', 'key=AIzaSyAKbYAjNo72FOZ6S0XZoW395R2LTWIm8II'],
 	['bandsintown', 'https://rest.bandsintown.com/artists/', 'app_id=codingbootcamp'],
@@ -11,7 +11,7 @@ var apiArray = [
 var apis = [
 	{
 		apiname: 'musixmatch', 
-		baseurl: 'https://api.musixmatch.com/ws/1.1/', 	// was http:
+		baseurl: 'https://api.musixmatch.com/ws/1.1/', 	
 		types: ['chart.artists.get?'],
 		apikey: 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'
 	},
