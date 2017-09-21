@@ -1,11 +1,25 @@
 // Interface to API's
 
 var apiArray = [
-	['musixmatch', 'https://api.musixmatch.com/ws/1.1/chart.artists.get?', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	['freemusicarchive', 'https://freemusicarchive.org/api/trackSearch?', ''],
-	['youtube', 'https://www.googleapis.com/youtube/v3/search?', 'key=AIzaSyAKbYAjNo72FOZ6S0XZoW395R2LTWIm8II'],
-	['bandsintown', 'https://rest.bandsintown.com/artists/', 'app_id=codingbootcamp'],
-	['eventful', 'https://eventful.com/jason/events/search?', 'G8jtQgjTFGVsmvdV']
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=it&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['freemusicarchive', 'https://freemusicarchive.org/api/trackSearch?q=deerhoof&limit=10', ''],
+	['youtube', 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&type=video&videoDefinition=high&videoEmbeddable=true&', 'key=AIzaSyAKbYAjNo72FOZ6S0XZoW395R2LTWIm8II'],
+	['bandsintown', 'https://rest.bandsintown.com/artists/van morrison?', 'app_id=codingbootcamp'],
+	['eventful', 'https://cors.io/?https://eventful.com/json/events/search?q=concert', 'G8jtQgjTFGVsmvdV'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=15953433&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'], 
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/track.snippet.get?track_id=16860631&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=sexy%20and%20i%20know%20it&q_artist=lmfao&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&artist.related.get?artist_id=56&page_size=2&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&album.get?album_id=14250417', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&album.tracks.get?album_id=13750844&page_size=10', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&tracking.url.get?domain=www.mylyricswebsite.com', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&airgead73.github.io.project-one', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
 ];
 
 var apis = [
@@ -36,7 +50,7 @@ var apis = [
 		{
 		apiname: 'eventful', 
 		baseurl: 'https://eventful.com/', 
-		types: ['jason/events/search?'],
+		types: ['json/events/search?'],
 		apikey: 'G8jtQgjTFGVsmvdV'
 	}
 ];
@@ -48,7 +62,7 @@ function controlApiQuery () {
 }
 
 function getApiInfo (apiName) {
-	console.log("getApiInfo function");
+	//console.log("getApiInfo function");
 
 	var queryString;
 
@@ -72,7 +86,7 @@ function getApiInfo (apiName) {
 			console.log("Error: invalid getApiInfo() name")
 	}	// switch
 
-    //console.log("queryString: ", queryString);
+    console.log("queryString: ", queryString);
 
 	$.ajax({
 		  //dataType: 'jsonp',
@@ -86,7 +100,7 @@ function getApiInfo (apiName) {
 
 // Use apisArray to construct query String based on index
 function constructQueryString (index) {
-	console.log("constructQueryString function");
+	//console.log("constructQueryString function");
 	var queryString = 
          apis[index].baseurl
          + apis[index].types
@@ -120,11 +134,11 @@ function serialQueryApi (formName) {
 
 }
 
-function queryApi (apiName, queryType, searchObject) {
+function queryApi (index) {
 	var queryString = 
-         apis[0].baseurl
-         + apis[0].types
-         + apis[0].apikey;
+         //apiArray[index][0]
+         apiArray[index][1]
+         + apiArray[index][2];
 
          console.log("queryString: ", queryString);
 
@@ -138,15 +152,53 @@ function queryApi (apiName, queryType, searchObject) {
 
 }
 
+function test(artist) {
+
+var getThis = function(url){
+  	return new Promise (function(resolve, reject){
+    $.ajax({
+      url: url,
+      method: "GET"
+    }).done(function(data) {
+      resolve(data);
+    });
+  });
+}
+
+getThis("https://cors.io/?"
+	+ "https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=it&apikey=4dd81b4d24fc4b88c41b0e8638cc97aa")
+	.then(function(result){console.log(result)})
+
+}
+
       //$(document).on("click", <"h1">, queryApi(musixMatch, chartartistsget));
 //$(document).ready(function(){
     $("h1").click(function(){
-    	//queryApi("dummy1", "dummy2");
-    	getApiInfo("musixmatch");
-    	getApiInfo("freemusicarchive");
-    	getApiInfo("youtube");
-    	getApiInfo("bandsintown");
-    	getApiInfo("eventful");
+  		console.log("click");
+    	//test ("van Morrison");
+    	//getThis();
+    	//queryApi(0);
+    	//queryApi(1);
+    	//queryApi(2);
+    	//queryApi(3);
+    	//queryApi(4);
+    	//queryApi(5);
+    	//queryApi(6);    	
+    	//queryApi(7); 		// not working  	
+    	//queryApi(8);    	
+    	//queryApi(9);   	// not working 	
+    	//queryApi(10); 	// not working   	
+    	//queryApi(11);    	// not working
+    	//queryApi(12);		// not working
+
+    	//queryApi(13);    	
+    	//queryApi(14);    	
+    	//queryApi(15);
+    	//getApiInfo("musixmatch");
+    	//getApiInfo("freemusicarchive");
+    	//getApiInfo("youtube");
+    	//getApiInfo("bandsintown");
+    	//getApiInfo("eventful");
     });
 //});
 //.ajaxSuccess();
