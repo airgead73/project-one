@@ -6,18 +6,21 @@ var apiArray = [
 	['youtube', 'https://www.googleapis.com/youtube/v3/search?part=snippet&order=rating&type=video&videoDefinition=high&videoEmbeddable=true&', 'key=AIzaSyAKbYAjNo72FOZ6S0XZoW395R2LTWIm8II'],
 	['bandsintown', 'https://rest.bandsintown.com/artists/van morrison?', 'app_id=codingbootcamp'],
 	['eventful', 'https://cors.io/?https://eventful.com/json/events/search?q=concert', 'G8jtQgjTFGVsmvdV'],
+
 	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=15953433&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'], 
 	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/track.snippet.get?track_id=16860631&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=sexy%20and%20i%20know%20it&q_artist=lmfao&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&artist.related.get?artist_id=56&page_size=2&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&album.get?album_id=14250417', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&album.tracks.get?album_id=13750844&page_size=10', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&tracking.url.get?domain=www.mylyricswebsite.com', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&airgead73.github.io.project-one', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
-	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/matcher.lyrics.get?q_track=sexy%20and%20i%20know%20it&q_artist=lmfao&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/artist.related.get?artist_id=437407&page_size=2&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/album.get?album_id=14250417&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/album.tracks.get?album_id=12650515&page=1&page_size=2&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/page=1&tracking.url.get?domain=irgead73.github.io.project-one&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/matcher.track.get?q_artist=eminem&q_track=lose%20yourself%20(soundtrack)&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/track.search?q=sun&page_size=10&page=1&s_track_rating=desc&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/track.search?q_artist=justin bieber&page_size=10&page=1&s_track_rating=desc&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/track.get?track_id=15445219&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
+	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/artist.get?artist_id=56&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
 	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
 	//['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/&page=1&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
 ];
@@ -174,26 +177,29 @@ getThis("https://cors.io/?"
       //$(document).on("click", <"h1">, queryApi(musixMatch, chartartistsget));
 //$(document).ready(function(){
     $("h1").click(function(){
-  		console.log("click");
+  		//console.log("click");
     	//test ("van Morrison");
     	//getThis();
-    	//queryApi(0);
-    	//queryApi(1);
-    	//queryApi(2);
-    	//queryApi(3);
-    	//queryApi(4);
-    	//queryApi(5);
-    	//queryApi(6);    	
-    	//queryApi(7); 		// not working  	
-    	//queryApi(8);    	
-    	//queryApi(9);   	// not working 	
-    	//queryApi(10); 	// not working   	
-    	//queryApi(11);    	// not working
-    	//queryApi(12);		// not working
+    	//queryApi(0);		// musixmatch country source
+    	//queryApi(1);		// fma track search by artist deerhoof
+    	//queryApi(2);		// some kind of youtube search
+    	//queryApi(3);		// bands in town - van morrison
+    	//queryApi(4);		// eventful
 
-    	//queryApi(13);    	
-    	//queryApi(14);    	
-    	//queryApi(15);
+    	//queryApi(5);		// musixmatch - lyrics search by mm track id #
+    	//queryApi(6);		// musixmatch - snippet search by mm track id #  	
+    	//queryApi(7); 		// musixmatch - match sexy and i know it  - works (doesn't like page at end) 	
+    	//queryApi(8);    	// artist.related.get?artist_id=437407&page_size=2&page=1 - works (no Faith Hill?) 
+    	//queryApi(9);   	// album.get?album_id=14250417& - works - don't use page params
+
+    	queryApi(10); 	// album.tracks.get?album_id=12650515 &page=1&page_size=2&
+    	//queryApi(11);    	// tracking URL not working - not needed
+    	//queryApi(12);		// matcher.track.get?q_artist=eminem&q_track=lose%20yourself%20(soundtrack)&
+
+    	//queryApi(13);		// q=sun&page_size=10&page=1&s_track_rating=desc&    	
+    	//queryApi(14);    	// q_artist=justin bieber&page_size=10&page=1&s_track_rating=desc&
+    	//queryApi(15);		// track.get?track_id=15445219&
+    	//queryApi(16);		// artist.get?artist_id=118
     	//getApiInfo("musixmatch");
     	//getApiInfo("freemusicarchive");
     	//getApiInfo("youtube");
