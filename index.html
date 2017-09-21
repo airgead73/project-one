@@ -1,114 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
-    name="viewport" />
-<title>project 1 practice</title>
-<!--bootstrap css-->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!--custom css-->
-<link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
-<!--jquery-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- 
-<!-- Firebase Reference -->
-<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
-<!-- YOU TUBE API SETUP -->
-<script src="assets/js/youTube.js"></script>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport" />
+    <title>project 1 practice</title>
+    <!--bootstrap css-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <!--custom css-->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+    <!-- YOU TUBE API SETUP -->
+    <script src="assets/js/youTube.js"></script>
 </head>
+
 <body>
-<div class="page">
-  <header>
-    <h1>LOGO</h1>
-    <button id="open-user">sign up / log in</button> </header>
-  <main>
-    <form>
-      <fieldset>
-        <label for="search">search</label>
-        <input id="search" type="text">
-      </fieldset>
-    </form>
-    <section id="resultsDisplay"> </section>
-    <section class="user" id="user">
-    <!-- Log in form for form for those who have already signed up -->
-    <form class="user-form" id="user-login">
-    	<fieldset>
-    		<legend>log in</legend>
-    		<label for="un">username</label>
-    		<input id="un" type="text">
-    		
-    		<label for="pwd">password</label>
-    		<input id="pwd" type="text">
-    		
-    		<button type="reset">reset</button>
-    		<button type="submit">submit</button><!--need id-->
-    	</fieldset>
-    </form>
-    <p><span>or</span></p>
-    
-    <!-- sign up for for new users -->
-    <form>
-    	<fieldset>
-    		<legend>sign up</legend>
-    		<label for="name">name</label>
-    		<input id="name" type="text">
-    		
-    		<label for="new-un">username</label>
-    		<input id="new-un" type="text">
-    		
-    		<label for="new-pwd">password</label>
-    		<input id="new-pwd" type="text">
-    		
-   			<button type="reset">reset</button>
-    		<button type="submit" id="execute-request-button">submit</button>    		
-    	</fieldset>
-    </form>
-    	
-    </section>
+    <div class="page">
 
-    <section>
-      <h1>Videos</h1>
-      <div id="results"></div>
-    </section>
+<!--***********************************************************************************************
 
-<section id="test">
-    <form id="test-form">
-        <fieldset>
-            <legend>test</legend>
-            <label for="song">song</label>
-            <input id="song" type="text">
-            
-            <label for="artist">artist</label>
-            <input id="artist" type="text">
-            
-            <label for="album">album</label>
-            <input id="album" type="text">
+HEADER includes 
+    -logo
+    -sign up / log in
+    -link to "profile"
 
-           <label for="country">country</label>
-            <input id="country" type="text">            
-            
-            <button type="reset">reset</button>
-            <button type="submit" id="test-btn">submit</button>            
-        </fieldset>
-    </form>
-</section>
+-->        
+        <header>
+            <h1>LOGO</h1>
+            <button id="open-user">sign up / log in</button>
 
-  </main>
-</div>
-<footer>
-  <p><small>&copy; 2017 MADS | powered by <a href="https://www.musixmatch.com"> www.musixmatch.com</a></small></p>
-</footer>
-<script type="application/javascript" src="assets/js/app.js"></script>
-<!-- API Interface -->
-<script type="application/javascript" src="assets/js/api_if.js"></script>
+            <a href="#" id="profile-btn">Your profile</a>            
 
-<!-- YOU TUBE API LIBRARY -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script async defer src="https://apis.google.com/js/api.js" 
-      onload="this.onload=function(){};handleClientLoad()" 
-      onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
+            <section class="user" id="user">
+                <!-- Log in form for form for those who have already signed up -->
+                <form class="user-form" id="user-login">
+                    <fieldset>
+                        <legend>log in</legend>
+                        <label for="un">username</label>
+                        <input id="un" type="text">
+                        <!--
+                        <label for="pwd">password</label>
+                        <input id="pwd" type="text">
+                        -->
+                        <button type="reset">reset</button>
+                        <button type="submit">submit</button>
+                        <!--need id-->
+                    </fieldset>
+                </form>                
+                <!-- sign up for for new users -->
+                <form>
+                    <fieldset>
+                        <legend>sign up</legend>
+                        <label for="name">name</label>
+                        <input id="name" type="text">
+                        <label for="new-un">username</label>
+                        <input id="new-un" type="text">
+                        <!--
+                        <label for="new-pwd">password</label>
+                        <input id="new-pwd" type="text">
+                        -->
+                        <button type="reset">reset</button>
+                        <button type="submit" id="execute-request-button">submit</button>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section id="profile">
+                
+
+            <!-- user profile. Favorites display here -->
+
+
+            </section>
+
+        </header>
+<!--***********************************************************************************************
+
+MAIN includes 
+    -main search field
+    -results from main search 
+    -detail 
+    -discover
+
+
+-->            
+        <main>
+
+        
+
+            <form>
+                <fieldset>
+                    <label for="search">search</label>
+                    <input id="search" type="text">
+                </fieldset>
+            </form>
+
+        <section id="resultsDisplay"> 
+
+                <button class="close" type="button" id="results-close">close results</button>
+
+                <h2>Results for "Crazy"</h2>
+                <div id="results">
+                    <table class="results">
+                        <thead>
+                            <tr>
+                                <th scope="col">track</th>
+                                <th scope="col">artist</th>
+                                <th scope="col">album</th>
+                                <th scope="col">year</th>
+                                <th scope="col">fav</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Crazy</th>
+                                <td>Patsy Cline</td>
+                                
+                                <td>Patsy Cline Showcasee</td>
+                                <td>1961</td>
+                                <td><input id="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy</th>
+                                <td>Willy Nelson</td>
+                                
+                                <td>And Then I Wrote</td>
+                                <td>1961</td>
+                                <td><input id="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy Train</th>
+                                <td>Ozzy Osbourne</td>
+                                
+                                <td>Blizzard of Ozz</td>
+                                <td>1980</td>
+                                <td><input id="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy in Love</th>
+                                <td>Beyonce</td>
+                                
+                                <td>Dangerously in Love</td>
+                                <td>2003</td>
+                                <td><input id="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy Little Thing Called Love</th>
+                                <td>Queen</td>
+                                
+                                <td>Live in Hammersmith</td>
+                                <td>1985</td>
+                                <td><input id="fav" type="checkbox"></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button id="fav-save">save favorites</button>
+
+        </section>
+
+        <!--discover-->
+
+        <section id="discover">
+        <h2>Discover</h2>
+        <ul id="discover-items">
+            <li>discover item</li>
+            <li>discover item</li>
+            <li>discover item</li>
+            <li>discover item</li>
+            <li>discover item</li>
+        </ul>
+  
+        </section>          
+
+        <!--song detail-->
+
+        <section id="song-detail">
+            <p id="song-title"></p>
+            <p id="song-artist"></p>
+            <p id="song-album"></p>
+            <p id="song-country"></p>
+            <div id="song-video"></div>
+        </section>
+
+      
+
+
+
+        
+        <!-- test form -->
+
+
+        <section id="test">
+                <form id="test-form">
+                    <fieldset>
+                        <legend>test</legend>
+                        <label for="song">song</label>
+                        <input id="song" type="text">
+                        <label for="artist">artist</label>
+                        <input id="artist" type="text">
+                        <label for="album">album</label>
+                        <input id="album" type="text">
+                        <label for="country">country</label>
+                        <input id="country" type="text">
+                        <button type="reset">reset</button>
+                        <button type="submit" id="test-btn">submit</button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p><small>&copy; 2017 MADS | powered by <a href="https://www.musixmatch.com"> www.musixmatch.com</a></small></p>
+    </footer>
+    <script type="application/javascript" src="assets/js/app.js"></script>
+    <!-- API Interface -->
+    <script type="application/javascript" src="assets/js/api_if.js"></script>
+    <!-- YOU TUBE API LIBRARY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 </body>
+
 </html>
