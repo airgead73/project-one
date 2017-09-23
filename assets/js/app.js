@@ -34,7 +34,7 @@ $("#login").on("click", function(){
     getCurrentUser(loginuser, function(sv) {
         for(var key in sv.tracks) {
            updateFavorites(sv.tracks[key]);
-            console.log(sv.tracks[key]);
+            // console.log(sv.tracks[key]);
         }            
     });
 
@@ -52,7 +52,7 @@ $("#signup").on("click", function(){
     })
 
     getCurrentUser(username, function(sv) {
-        console.log("i am in the callback function");
+        // console.log("i am in the callback function");
     });
 });
 
@@ -68,12 +68,12 @@ $('#fav-save').click(function() {
             if(user.tracks){
                 currentTracks = Object.values(user.tracks)
             }
-            console.log(snapshot.val());
+            // console.log(snapshot.val());
             //getting object into an array
-            console.log(currentTracks);            
+            // console.log(currentTracks);            
             $("input:checkbox:checked", "#results").each(function() {
                 var track = $(this).data("for");
-                console.log(track);
+                // console.log(track);
                 if(currentTracks.indexOf(track) === -1){
                     database.ref("users/"+ userId +"/tracks").push(track);
                     currentTracks.push(track);
