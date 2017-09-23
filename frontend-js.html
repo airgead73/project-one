@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport" />
+    <title>project 1 | frontend js test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+		* {
+			box-sizing: border-box;
+		}
+		.page {
+			max-width: 1280px;
+			margin: 0 auto;
+		}
+		#user {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0,0,0, 0.7);
+		}
+		
+		#profile {
+			display: none;
+			position: fixed;
+			background-color: white;
+			width: 500px;
+			top: 150px;
+			left: auto;
+			right: auto;
+		}
+		
+		#resultsDisplay {
+			display: none;
+			position: relative;
+			top: -150px;
+			width: 80%;
+			max-width: 960px;
+			margin: 0 auto;
+		}
+		
+		#discover {
+			display: none;
+		}
+		
+		#song-detail {
+			display: none;
+		}		
+		
+		
+		#user-form {
+			width: 80%;
+			max-width: 700px;
+			margin: 150px auto;
+			background-color: white;
+			padding: 30px;
+		}
+		#user-form fieldset {
+			display: inline-block;
+			width: 48%;
+			background-color: white;
+		}
+		
+		input[type="text"] {
+			width: 100%;
+		}
+		
+		/* show hidden boxes */
+		
+		#user.js-active {
+			display: block;
+		}
+		
+		#profile.js-active {
+			display: block;
+		}
+		#resultsDisplay.js-active {
+			display: block;
+		}
+		
+	</style>
+
+</head>
+
+<body>
+    <div class="page">
+
+<!--***********************************************************************************************
+
+HEADER includes 
+    -logo
+    -sign up / log in
+    -link to "profile"
+
+-->        
+        <header>
+            <h1>LOGO</h1>
+            <button id="open-user">sign up / log in</button>
+
+            <a href="#" id="profile-btn">Your profile</a>            
+
+            <section class="user" id="user">
+               <button id="user-close">close</button>
+                <!-- Log in form for form for those who have already signed up -->
+                <form class="user-form" id="user-login">
+                    <fieldset>
+                        <legend>log in</legend>
+                        <label for="un">username</label>
+                        <input id="un" type="text">
+                        <!--
+                        <label for="pwd">password</label>
+                        <input id="pwd" type="text">
+                        -->
+                        <button type="reset">reset</button>
+                        <button id="submit" type="submit">submit</button>
+                        <!--need id-->
+                    </fieldset>
+                                
+                <!-- sign up for for new users -->
+                
+                    <fieldset>
+                        <legend>sign up</legend>
+                        <label for="name">name</label>
+                        <input id="name" type="text">
+                        <label for="new-un">username</label>
+                        <input id="new-un" type="text">
+                        <!--
+                        <label for="new-pwd">password</label>
+                        <input id="new-pwd" type="text">
+                        -->
+                        <button type="reset">reset</button>
+                        <button type="submit" id="execute-request-button">submit</button>
+                    </fieldset>
+                </form>
+            </section>
+
+            <section id="profile">
+                
+
+            <!-- user profile. Favorites display here -->
+
+
+            </section>
+
+        </header>
+<!--***********************************************************************************************
+
+MAIN includes 
+    -main search field
+    -results from main search 
+    -detail 
+    -discover
+
+
+-->            
+        <main>
+
+        
+
+            <form>
+                <fieldset>
+                    <label for="search">search</label>
+                    <input id="search" type="text">
+                </fieldset>
+            </form>
+
+        <section id="resultsDisplay"> 
+
+                <button class="close" type="button" id="results-close">close results</button>
+
+                <h2>Results for "Crazy"</h2>
+                <div id="results">
+                    <table class="results">
+                        <thead>
+                            <tr>
+                                <th scope="col">track</th>
+                                <th scope="col">artist</th>
+                                <th scope="col">album</th>
+                                <th scope="col">year</th>
+                                <th scope="col">fav</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Crazy</th>
+                                <td>Patsy Cline</td>
+                                
+                                <td>Patsy Cline Showcasee</td>
+                                <td>1961</td>
+                                <td><input class="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy</th>
+                                <td>Willy Nelson</td>
+                                
+                                <td>And Then I Wrote</td>
+                                <td>1961</td>
+                                <td><input class="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy Train</th>
+                                <td>Ozzy Osbourne</td>
+                                
+                                <td>Blizzard of Ozz</td>
+                                <td>1980</td>
+                                <td><input class="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy in Love</th>
+                                <td>Beyonce</td>
+                                
+                                <td>Dangerously in Love</td>
+                                <td>2003</td>
+                                <td><input class="fav" type="checkbox"></td>
+                                
+                            </tr>
+                            <tr>
+                                <th scope="row">Crazy Little Thing Called Love</th>
+                                <td>Queen</td>
+                                
+                                <td>Live in Hammersmith</td>
+                                <td>1985</td>
+                                <td><input class="fav" type="checkbox"></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="button" id="fav-save">save favorites</button>
+			</div>
+
+        </section>
+
+        <!--discover-->
+
+        <section id="discover">
+        <h2>Discover</h2>
+        <ul id="discover-items">
+            <li>discover item</li>
+            <li>discover item</li>
+            <li>discover item</li>
+            <li>discover item</li>
+            <li>discover item</li>
+        </ul>
+  
+        </section>          
+
+        <!--song detail-->
+
+        <section id="song-detail">
+            <p id="song-title"></p>
+            <p id="song-artist"></p>
+            <p id="song-album"></p>
+            <p id="song-country"></p>
+            <div id="song-video"></div>
+        </section>
+
+      
+
+
+
+        
+
+        </main>
+    </div>
+    <footer>
+        <p><small>&copy; 2017 MADS | powered by <a href="https://www.musixmatch.com"> www.musixmatch.com</a></small></p>
+    </footer>
+<!--script to control frontend: show/hide boxes-->
+
+<script type="application/javascript">
+	$("#open-user").on("click", function(){
+		$("#user").addClass("js-active");
+		
+	});
+	
+	$("#search").on("click", function(){
+		$("#resultsDisplay").addClass("js-active");
+		
+	});	
+	
+	$("#results-close").on("click", function(){
+		$("#resultsDisplay").removeClass("js-active");
+		
+	});	
+	
+	$("#user-close").on("click", function(){
+		$("#user").removeClass("js-active");
+		
+	});		
+	
+	
+	</script>
+
+
+</body>
+
+</html>
