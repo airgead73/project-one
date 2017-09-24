@@ -11,6 +11,60 @@ var gblSearchType = '';
 var gblCountry = '';
 
 /**
+ * apiObj - this is the main wrapper object to access all api related stuff
+ * 
+ */
+// var apiObj {
+
+// 	keywordSearch function (keyword) {
+// 		return apiObj ();
+// 	}
+
+// 	songSearch: function (song) {
+// 		return apiObj ();
+// 	}
+
+// 	videoSearch: function (keyword) {
+// 		return apiObj ();
+// 	}
+
+// 	audioSearch: function (song) {
+// 		return apiObj ();
+// 	}
+
+// 	lyricsSearch: function () {
+// 		return apiObj ();
+// 	}
+
+// 	someKindOfSearch: function {
+
+// 		return new apiObj (x, y);		// don't need the new...
+// 	}
+
+// 	function getApiData () {
+
+// 	}
+
+// 	this.helperFn () {
+// 		this.something = value;
+// 		return this;
+// 	}
+
+// 	artist_id: 0,
+// 	artist_name: "",
+// 	album_id: 0,
+// 	album_name: "",
+// 	album_art: "",
+// 	track_id: xxxxxxx,
+// 	track_name: lawdkjflaksdfjla,
+// 	lyrics_id: xxxxx,
+// 	lyrics_body: “Ohhhh, baby….”,
+// 	album_year: “xxxx”,
+
+// };
+
+
+/**
  * Plain Vanilla Functions - you can call these on their own to return a result string 
  * 	- they do not affect the apiObj{}
  * 	- return = string result(s)
@@ -24,16 +78,10 @@ function keywordSearch (searchString, apiName, searchParam) {
 	var baseUrl = getBaseUrl(apiName);
 	var searchType = getSearchType('keywordSearch');
 	var key = getKey(apiName);
-	queryString = baseUrl + searchType + searchString + searchParam + key;
+	queryString = baseUrl + searchType + 'q=' + searchString + '&' + searchParam + key;
 	console.log("keywordSearch: queryString: ", queryString);
 
 	callAjax(queryString);
-
-	//console.log("keywordSearch: response: ", gblResponse);
-	//console.log( "JSON.parse: ", JSON.parse( gblResponse ) ); // nope
-	//console.log( "console.dir: " + "on next line" );
-	//console.dir( gblResponse );
-	//console.log("keywordSearch: gblResponse", JSON.parse(JSON.stringify(gblResponse)));
 }
 
 /**
@@ -194,7 +242,7 @@ function callAjax (queryString) {
           url: queryString,
           method: "GET"    
         }).done(function(response) {
-            console.log("callAjax: response: ", response);
+            console.log("callAjax: response: ", JSON.parse(response));
             gblResponse = response;								// any reason we can't do this?
     });
 
@@ -326,29 +374,11 @@ function queryApi (index) {
           url: queryString,
           method: "GET"    
         }).done(function(response) {
-            console.log("queryApi: response: ", response);
+            console.log("queryApi: response: ", JSON.parse(response));
     });
 
 }
 
-function test(artist) {
-
-var getThis = function(url){
-  	return new Promise (function(resolve, reject){
-    $.ajax({
-      url: url,
-      method: "GET"
-    }).done(function(data) {
-      resolve(data);
-    });
-  });
-}
-
-getThis("https://cors.io/?"
-	+ "https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=it&apikey=4dd81b4d24fc4b88c41b0e8638cc97aa")
-	.then(function(result){console.log(result)})
-
-}
 
 var apiArray = [
 	['musixmatch', 'https://cors.io/?https://api.musixmatch.com/ws/1.1/chart.artists.get?page=1&page_size=3&country=it&', 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'],
@@ -377,7 +407,7 @@ var apiArray = [
 //$(document).on("click", <"h1">, queryApi(musixMatch, chartartistsget));
 //$(document).ready(function(){
     $("h1").click(function(){
-    	keywordSearch("q=sun&");
+    	keywordSearch("sun");
     	//keywordSearch("");
   		//console.log("click");
     	//test ("van Morrison");
@@ -408,30 +438,3 @@ var apiArray = [
     	//getApiInfo("bandsintown");
     	//getApiInfo("eventful");
     });
-//});
-//.ajaxSuccess();
-//.ajaxError();
-//.ajaxStart()
-//.ajaxSend();
-//.ajaxComplete();
-//.ajaxStop();
-// ajaxStart (Global Event)
-// This event is triggered if an Ajax request is started and no other Ajax requests are currently running.
-// 	beforeSend (Local Event)
-// 	This event, which is triggered before an Ajax request is started, allows you to modify the XMLHttpRequest object (setting additional headers, if need be.)
-// 	ajaxSend (Global Event)
-// 	This global event is also triggered before the request is run.
-// 	success (Local Event)
-// 	This event is only called if the request was successful (no errors from the server, no errors with the data).
-// 	ajaxSuccess (Global Event)
-// 	This event is also only called if the request was successful.
-// 	error (Local Event)
-// 	This event is only called if an error occurred with the request (you can never have both an error and a success callback with a request).
-// 	ajaxError (Global Event)
-// 	This global event behaves the same as the local error event.
-// 	complete (Local Event)
-// 	This event is called regardless of if the request was successful, or not. You will always receive a complete callback, even for synchronous requests.
-// 	ajaxComplete (Global Event)
-// 	This event behaves the same as the complete event and will be triggered every time an Ajax request finishes.
-// ajaxStop (Global Event)
-// This global event is triggered if there are no more Ajax requests being processed.
