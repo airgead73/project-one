@@ -1,49 +1,194 @@
-/* TEMPORARY PLACEHOLDER CSS */
+/***************************************
 
-* {
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+Base
+
+*/
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
+/***************************************
 
-html,
-body {
-    height: 100%;
-    margin: 0;
+BUTTONS
+
+*/
+.btn {
+	border-radius: 0;
 }
+.btn:hover {
+	cursor: pointer;
+}
+#searchButton {
+	width: 75px;
+	background-color: darkgray;
+	border-color: darkgray;
+}
+/***************************************
 
+TABLES
+
+*/
+.table-scroll {
+	max-height: 400px;
+	overflow-y: scroll;
+}
+/***************************************
+
+FORMS
+
+*/
+.user-forms {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 3;
+}
+.user-form {
+	background-color: #ffffff;
+	padding: 20px 20px 40px 20px;
+}
+.user-form fieldset {
+	padding: 40px 20px;
+}
+.user-form fieldset:first-of-type {
+	border-bottom: 2px solid #cdd5dc;
+}
+.user-form legend {
+	position: relative;
+	top: 25px;
+}
+.form-logo {
+	display: inline-block;
+	height: 75px;
+}
+legend small {
+	font-size: .7em;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+}
+/***************************************
+
+SEARCH
+
+*/
+.results-container {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 3;
+}
+.results-wrapper {
+	background-color: #ffffff;
+	margin-top: 100px;
+	padding: 40px;
+}
+.results-heading {
+	display: inline-block;
+}
+/***************************************
+
+HEADER
+
+*/
+.team-name {
+	display: inline-block;
+	font-size: 1.75rem;
+}
+/***************************************
+
+MAIN
+
+*/
 .page {
-    min-height: 100%;
-    max-width: 1024px;
-    margin: 0 auto;
+	min-height: 100%;
 }
-
 main {
-    padding-bottom: 30px;
+	padding-bottom: 50px;
 }
+.main-logo-img {
+	max-width: 100%;
+	position: relative;
+}
+.intro p {
+	margin: 120px 40px 0 40px;
+}
+.jumbotron h2 {
+	display: none;
+}
+.alert-info {
+	background-color: #ffffff;
+}
+/***************************************
 
+FOOTER
+
+*/
 footer {
-    height: 30px;
-    margin-top: -30px;
+	height: 50px;
+	margin-top: -50px;
 }
 
-footer p {
-    text-align: center;
-}
+/***************************************
 
-input {
-    width: 100%;
-}
+MEDIA QUERIES
 
-section {
-    margin-bottom: 50px;
+*/
+@media (min-width: 576px) {
+.user-form fieldset:first-of-type {
+	border-right: 2px solid #cdd5dc;
+	border-bottom: none;
+	padding-right: 40px;
 }
-
-fieldset {
-    margin-bottom: 30px;
+.user-form fieldset:last-of-type {
+	padding-left: 40px;
 }
+}
+/***************************************
 
-table,
-th,
-td {
-    border: 1px solid gray;
+JS-BEHAVIOR
+
+*/
+*.js-inactive {
+	display: none;
+}
+#user-forms {
+	display: none;
+}
+#user-forms.js-active {
+	display: block;
+}
+#favorites {
+	display: none;
+}
+.js-active #favorites {
+	display: block;
+}
+.js-active #favorites h2 {
+	display: block;
+}
+.jumbotron.js-active {
+	margin-top: 0;
+	padding-top: 0;
+}
+.jumbotron.js-active h2 {
+	display: block;
+}
+.js-active .main-logo-img {
+	top: 10px;
+}
+.js-active .intro p {
+	display: none;
+}
+#results-container {
+	display: none;
+}
+#results-container.js-active {
+	display: block;
 }
