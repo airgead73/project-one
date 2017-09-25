@@ -9,6 +9,8 @@ var userForms = $("#user-forms");
 var results = $("#results-container");
 var searchOpen = $("#searchButton");
 var searchClose = $("#close-search-container");
+var detail = $("#detail-container");
+var detailClose = $("#close-detail-container");
 
 // general functions
 // for modals, default style has them "display: none". 
@@ -80,6 +82,17 @@ $(searchOpen).on("click", function(event){
 $(searchClose).on("click", function(event){
 	event.preventDefault();
 	close(results);
+});
+
+// open details from search result row
+$("#results-items tr").on("click", function(){
+	console.log("Table row clicked");	
+	open(detail);	
+});
+
+$(detailClose).on("click", function(){
+	console.log("Closing detail");
+	close(detail);	
 });
 
 	
