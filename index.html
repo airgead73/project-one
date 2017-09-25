@@ -151,10 +151,10 @@ MAIN includes
       </section>
       <!--jumbotron-->
       
-      <section class="container-fluid results-container" id="results-container">
-        <section class="container results-wrapper">
+      <!--search field and results display-->
+        <section class="container results-container"  id="results-container">
           <div class="row">
-            <div class="col-12">
+            <div class="col-12 results-heading">
               <h2 class="results-heading">Results for <span>{{term added dynamically?}}</span></h2>
               <button type="button" id="close-search-container" class="btn float-right">&times;</button>
             </div>
@@ -192,7 +192,7 @@ MAIN includes
           <div class="row">
             <div class="col-12">
               <button class="btn btn-primary" type="button" id="fav-save">save favorites</button>
-              <p>{{Should a "details" column be added to table after fav to take person to detail page?}}</p>
+             
             </div>
             <!--row--> 
           </div>
@@ -200,11 +200,49 @@ MAIN includes
           
         </section>
         <!--container--> 
-      </section>
-      <!--container fluid--> 
+       
       
     </section>
     <!--main content container--> 
+    
+       <section class="container-fluid detail-container" id="detail-container">
+        
+        	<section class="container detail-wrapper">
+        		
+        		<div class="row">
+        			<div class="col-12 detail-header">
+        			<h2 class="detail-heading">Details</h2>
+        			<button type="button" id="close-detail-container" class="btn float-right">&times;</button>
+        				
+        			</div><!--col-->
+        		</div><!--row-->
+        		
+        		<div class="row mt-5">
+        			<div class="col-4">
+        				
+        				<a href="https://placeholder.com"><img class="img-fluid" src="http://via.placeholder.com/300x300" title="placeholder"></a>
+        			</div>
+        			<div class="col-8">
+        				<h3>Track</h3>
+        				<p id="detail-track"></p>
+        				<h3>Artist</h3>
+        				<p id="detail-name"></p>
+        				<h3>Album</h3>
+        				<p id="detail-album"></p>
+        				<h3>Lyrics</h3>
+        				<div id="detail-lyrics">
+        					
+        				</div>
+        			</div>
+        		</div>
+        		
+        		
+        	</section><!--container-->
+        
+        
+        	
+        </section><!--container-fluid-->    
+    
   </main>
 </div>
 <footer>
@@ -214,43 +252,6 @@ MAIN includes
   <!--footer content container--> 
 </footer>
 
-
-
-<!--discover--> 
-
-<!--<section id="discover">
-      <h2>Discover</h2>
-      <ul id="discover-items">
-        <li>discover item</li>
-        <li>discover item</li>
-        <li>discover item</li>
-        <li>discover item</li>
-        <li>discover item</li>
-      </ul>
-    </section>--> 
-
-<!--song detail--> 
-
-
-
-<!-- test form --> 
-<!--    <section id="test">
-      <form id="test-form">
-        <fieldset>
-          <legend>test</legend>
-          <label for="song">song</label>
-          <input id="song" type="text">
-          <label for="artist">artist</label>
-          <input id="artist" type="text">
-          <label for="album">album</label>
-          <input id="album" type="text">
-          <label for="country">country</label>
-          <input id="country" type="text">
-          <button type="reset">reset</button>
-          <button type="submit" id="test-btn">submit</button>
-        </fieldset>
-      </form>
-    </section>--> 
 
 <!--Main Project Javascript--> 
 <script type="application/javascript" src="assets/js/app.js"></script> 
