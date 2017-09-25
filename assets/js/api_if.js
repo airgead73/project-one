@@ -32,7 +32,7 @@ var apiObj = {
 	},
 
 	songSearch: function (searchString, apiName, searchParam) {
-		console.log("apiObj.songSearch fn: song: ", song);
+		console.log("apiObj.songSearch fn: searchString: ", searchString);
 		apiName = (typeof apiName !== 'undefined') ?  apiName : 'musixmatch';		// default to musixMatch if no name is given
 		searchParam = (typeof searchParam !== 'undefined') ?  searchParam : 'page_size=10&page=1&s_track_rating=desc&';	// default to this if no param is given\
 
@@ -47,6 +47,7 @@ var apiObj = {
 	},
 
 	artistSearch: function (searchString, apiName, searchParam) {
+		console.log("apiObj.artistSearch fn: searchString: ", searchString);
 		apiName = (typeof apiName !== 'undefined') ?  apiName : 'musixmatch';		// default to musixMatch if no name is given
 		searchParam = (typeof searchParam !== 'undefined') ?  searchParam : 'page_size=10&page=1&s_track_rating=desc&';	// default to this if no param is given\
 
@@ -61,6 +62,7 @@ var apiObj = {
 	},
 
 	lyricsSearch: function (searchString, apiName, searchParam) {
+		console.log("apiObj.lyricsSearch fn: searchString: ", searchString);
 		apiName = (typeof apiName !== 'undefined') ?  apiName : 'musixmatch';		// default to musixMatch if no name is given
 		searchParam = (typeof searchParam !== 'undefined') ?  searchParam : '';	// default to this if no param is given\
 
@@ -103,7 +105,7 @@ var apiObj = {
           	url: queryString,
           	method: "GET"    
         	}).done(function(response) {
-            	apiObj.processResponse(response);		// doesn't work (type error) - says it's not a function when 'this.' is used vs 'apiObj'
+            	apiObj.processResponse(response);		// doesn't work with 'this'(type error) - says it's not a function 
             	//fooDone(response);			// works           	
     	});
 
@@ -111,14 +113,51 @@ var apiObj = {
 
 	processResponse: function (response) {
 
-		var myResponse = response;
+		//var myResponse = response;
 
-		console.log ("apiObj: processResponse: ", response);
+		console.log ("apiObj: processResponse: response", response);
 
-		console.log ("apiObj: processResponse: ", response.message.body.track_list);
+		if (typeof response.message.body != undefined) {
+			console.log("apiObj: processResponse: response.message.body", response.message.body);
+		};
+
+
+		//console.log ("apiObj: processResponse.message.body: ", response.message.body);
+
+		//console.log ("apiObj: processResponse.message.body.lyrics.lyrics.body: ", response.message.body.lyrics.lyrics_body);
+
+		var myObject = {level1: {level2: {level3: {level4: {level5: 'track_list'}}}}};
+		console.log ("Object.get: ", Object.get(myObject, 'level1.level2.level3.level4.level5'));
+
+		if(typeof response.message.body.track_list != undefined) {
+			console.log ("apiObj: processResponse.message.body.track_list: ", response.message.body.track_list);			
+		}
+		//console.log ("apiObj: processResponse.message.body.track_list[0].track.track_name: ", response.message.body.track_list[0].track.track_name);
+
+
 
 		//console.log("apiObj.processResponse: ", myResponse[100]);
 
+	},
+
+
+
+	showApiData: function () {
+		console.log("showApiData function called");
+
+		console.log("apiData: artist_id: ", this.apiData.artist_id);		
+		console.log("apiData: artist_name: ", this.apiData.artist_name);		
+		console.log("apiData: album_id: ", this.apiData.album_id);		
+		console.log("apiData: album_name: ", this.apiData.album_name);		
+		console.log("apiData: album_art: ", this.apiData.album_art);		
+		console.log("apiData: track_id: ", this.apiData.track_id);		
+		console.log("apiData: track_name: ", this.apiData.track_name);		
+		console.log("apiData: lyrics_id: ", this.apiData.lyrics_id);		
+		console.log("apiData: lyrics_body: ", this.apiData.lyrics_body);	
+
+		//console.log("placeholder: ", this.);		
+		//console.log("placeholder: ", this.);		
+		//console.log("placeholder: ", this.);		
 	},
 
 	firstLevelFunction: function () {
@@ -130,21 +169,38 @@ var apiObj = {
 	},
 
 	helperFn: function () {
-		console.log("In helperFn: ")
+		console.log("In helperFn: ");
 	},
 
-	artist_id: 0,
-	artist_name: "",
-	album_id: 0,
-	album_name: "",
-	album_art: "",
-	track_id: 0,
-	track_name: "lawdkjflaksdfjla",
-	lyrics_id: 12345,
-	lyrics_body: "Oh baby baby",
-	album_year: "1955",
+	apiData: {
 
-};
+		artist_id: 0,
+		artist_name: "",
+		album_id: 0,
+		album_name: "",
+		album_art: "",
+		track_id: 0,
+		track_name: "lawdkjflaksdfjla",
+		lyrics_id: 12345,
+		lyrics_body: "Oh baby baby",
+		album_year: "1955",
+
+	},
+
+};	// apiObject
+
+Object.get = function(object, property) {
+    var properties = property.split('.');
+    for (var i = 0; i < properties.length; i++) {
+        if (object && object[properties[i]]) {
+            object = object[properties[i]];
+        }
+        else {
+            return null;
+        }
+    }
+    return object;
+},
 
 function fooDone (response) {
 	console.log ("fooDone: ", JSON.parse(response));
@@ -339,10 +395,11 @@ function callAjax (queryString) {
 
 //$(document).on("click", <"h1">, queryApi(musixMatch, chartartistsget));
 //$(document).ready(function(){
-    $("h1").click(function(){
+    $(".team-name").click(function() {
     	apiObj.keywordSearch("sun");    	
     	apiObj.songSearch("rocket man");
     	apiObj.artistSearch("Van Morrison");
     	apiObj.lyricsSearch(15953433);
+    	apiObj.showApiData();
 
     });
