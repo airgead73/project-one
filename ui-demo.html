@@ -19,75 +19,78 @@
 </head>
 
 <body>
-<div class="page">
- 
-<!--***********************************************************************************************
+<div class="page"> 
+  
+  <!--***********************************************************************************************
 
 HEADER includes 
     -logo
     -sign up / log in, which links to profile after log in
     
---> 
- 
- <header>
- 	<section class="header-content container">
- 	
- 	<div class="row">
- 		<div class="col-12">
- 			<h1 class="team-name">MADS</h1>
- 			<input class="float-right btn btn-link" id="open-user-forms" type="button"  data-status="notLogged" value="log in / sign up">
- 		</div><!--col-->
- 	</div><!--row-->
- 	
-	 </section>
- 	
- 	<!-- user sign up and log in -->
- 	
- 	<section class="container-fluid user-forms" id="user-forms">
- 		
-	 <form class="container mt-5 user-form">
-		<header class="row">
-			<div class="col-12">
-				<img class="form-logo" src="assets/images/logo.svg" alt="MADSONGS Logo">
-				<button type="button" id="close-user-forms" class="btn float-right">&times;</button>
-			</div><!--col-->
-		</header><!--row-->
-		<div class="row">
-		<!--sign up-->
-			<fieldset class="col-12 col-sm-6">
-				<legend>sign up <small class="text-muted">(if <u>not</u> a member)</small></legend>
-				<div class="form-group">
-					<label for="name" class="form-control-label">name</label>
-					<input id="name" type="text" class="form-control" placeholder="your name">
-					<label for="new-un" class="form-control-label">username</label>
-					<input id="new-un" type="text" class="form-control" placeholder="choose a username between 8 and 16 characters">
-				</div>
-				<div class="form-group">
-					<button class="btn btn-primary" type="reset">reset</button>
-					<button id="signup" class="btn btn-primary btn-user-access" type="submit">sign up</button>
-				</div>
-			</fieldset>
-		<!--log in-->
-			<fieldset class="col-12 col-sm-6">
-				<legend>log in <small class="text-muted">(if <u>already</u> a member)</small></legend>
-				<div class="form-group">
-					<label for="un" class="form-control-label">username</label>
-					<input id="un" type="text" class="form-control" placeholder="your username">
-				</div>
-				<div class="form-group">
-					<button class="btn btn-primary" type="reset">reset</button>
-					<button id="login" class="btn btn-primary btn-user-access" type="submit">log in</button>
-				</div>
-			</fieldset>	
-		</div><!--row-->
-	 </form><!--container-->
-
- 		
- 	</section><!--container fluid-->
- 	
- </header>
- 
- <!--***********************************************************************************************
+-->
+  
+  <header>
+    <section class="header-content container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="team-name">MADS</h1>
+          <input class="float-right btn btn-link" id="open-user-forms" type="button"  data-status="notLogged" value="log in / sign up">
+        </div>
+        <!--col--> 
+      </div>
+      <!--row--> 
+      
+    </section>
+    
+    <!-- user sign up and log in -->
+    
+    <section class="container-fluid user-forms" id="user-forms">
+      <form class="container mt-5 user-form">
+        <header class="row">
+          <div class="col-12"> <img class="form-logo" src="assets/images/logo.svg" alt="MADSONGS Logo">
+            <button type="button" id="close-user-forms" class="btn float-right">&times;</button>
+          </div>
+          <!--col--> 
+        </header>
+        <!--row-->
+        <div class="row"> 
+          <!--sign up-->
+          <fieldset class="col-12 col-sm-6">
+            <legend>sign up <small class="text-muted">(if <u>not</u> a member)</small></legend>
+            <div class="form-group">
+              <label for="name" class="form-control-label">name</label>
+              <input id="name" type="text" class="form-control" placeholder="your name">
+              <label for="new-un" class="form-control-label">username</label>
+              <input id="new-un" type="text" class="form-control" placeholder="choose a username between 8 and 16 characters">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="reset">reset</button>
+              <button id="signup" class="btn btn-primary btn-user-access" type="submit">sign up</button>
+            </div>
+          </fieldset>
+          <!--log in-->
+          <fieldset class="col-12 col-sm-6">
+            <legend>log in <small class="text-muted">(if <u>already</u> a member)</small></legend>
+            <div class="form-group">
+              <label for="un" class="form-control-label">username</label>
+              <input id="un" type="text" class="form-control" placeholder="your username">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="reset">reset</button>
+              <button id="login" class="btn btn-primary btn-user-access" type="submit">log in</button>
+            </div>
+          </fieldset>
+        </div>
+        <!--row-->
+      </form>
+      <!--container--> 
+      
+    </section>
+    <!--container fluid--> 
+    
+  </header>
+  
+  <!--***********************************************************************************************
 
 MAIN includes 
     -main search field
@@ -95,302 +98,307 @@ MAIN includes
     -profile (favorites) 
     -discover
 -->
- 
- <main>
- 	<section class="main-content container">
- 	
- 	<section class="jumbotron" id="profile">
- 	
- 	<div class="row">
-		<div class="col-6" id="main-logo">
-		<img class="main-logo-img" src="assets/images/logo.svg" alt="logo">
-
-		</div><!--col-->
-		
-		<div class="col-6 intro" id="intro">
-		
-			<p><span class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> Inventore architecto itaque eius nemo, tenetur culpa, quidem debitis eveniet, voluptas minus doloribus perferendis. Natus, exercitationem, aperiam!</p>   
-			
-			<h2 class="text-right mt-5">Your Favorites</h2>
-		</div>
- 		
- 	</div><!--row-->
- 	
- 	<section class="row mt-5" id="favorites">
- 		<div class="col-12">
- 		
-		<div class="table-scroll mb-2">
-			<table class="table  alert alert-info">
-			<thead class="inverse">
-			  <tr>
-				<th>track ID</th>
-				<th>song</th>
-				<th>artist</th>
-				<th>album</th>
-				<th>year</th>				
-			  </tr>
-			</thead>
-			<tbody id="my-favs">			
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>			 	
-			 </tr>			
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>			 	
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>	
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 </tr>			 
-			 			 			 			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>	
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 </tr>			 
-		
-			</tbody>
-		  </table>
-	   	</div><!--favorites scroll-->
-		   		
- 			
- 		</div><!--col-->
- 		
- 
- 	</section><!--row-->
- 	
- 	<section class="row">
-     <form class="col-12 mt-5" >
-        <div class="input-group mb-2 mb-sm-0">          
-          <button class="btn btn-primary" id="searchButton" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
-          <input type="text" class="form-control" id="search" placeholder="Keywords, Songs, Albums">
-        </div>
-      </form><!--col-->
- 	</section>
- 		
- 	</section><!--jumbotron-->
- 	
- 	 	<section class="container-fluid results-container" id="results-container">
- 	 		<section class="container results-wrapper">
- 	 		
- 	 		<div class="row">
- 	 			<div class="col-12">
- 	 				<h2 class="results-heading">Results for <span>{{term added dynamically?}}</span></h2>
- 	 				<button type="button" id="close-search-container" class="btn float-right">&times;</button>
- 	 			</div><!--col-->
- 	 			
- 	 		</div><!--row-->
- 	 		
- 	 		<div class="row mt-5">
- 	 			<div class="col-12" id="resultsDisplay">
- 	 			
-<div class="table-scroll">
-		<table class="table">
-			<thead class="inverse">
-			  <tr>
-				<th>track ID</th>
-				<th>song</th>
-				<th>artist</th>
-				<th>album</th>
-				<th>year</th>
-				<th>fav</th>
-			  </tr>
-			</thead>
-			<tbody>
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>			 
-			 			 			 			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>
-			 
-			 <tr>
-			 	<td>id</td>
-			 	<td>Crazy</td>
-			 	<td>Patsy Cline</td>
-			 	<td>Greatest Hits</td>
-			 	<td>1961</td>
-			 	<td><input type="checkbox"></td>
-			 </tr>	
-
-			
-			</tbody>
-		  </table>
-	 			</div> <!--table scroll-->	 			
- 
- 	 				
- 	 			</div><!--col-->
- 	 		</div><!--row-->
- 	 		
- 	 		<div class="row">
- 	 			<div class="col-12">
- 	 				<button class="btn btn-primary" type="button" id="fav-save">save favorites</button>
- 	 				<p>{{Should a "details" column be added to table after fav to take person to detail page?}}</p>
- 	 			</div><!--row-->
- 	 		</div><!--col-->
- 	 		
- 	 		
- 	 		
- 	 		
- 	 		
- 	 			
- 	 		</section><!--container-->
- 	 	</section> 	<!--container fluid-->
- 	
- 	
- 		
- 	</section><!--main content container-->
- </main>
- 
- </div>
- 
- <footer>
- 	<section class="footer-content container">
- 	<p class="text-center text-muted"><small>&copy; 2017 MADS | powered by <a href="https://www.musixmatch.com"> www.musixmatch.com</a></small></p>	
- 	</section><!--footer content container-->
- </footer>
   
+  <main>
+    <section class="main-content container">
+      <section class="jumbotron" id="profile">
+        <div class="row">
+          <div class="col-6" id="main-logo"> <img class="main-logo-img" src="assets/images/logo.svg" alt="logo"> </div>
+          <!--col-->
+          
+          <div class="col-6 intro" id="intro">
+            <p><span class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> Inventore architecto itaque eius nemo, tenetur culpa, quidem debitis eveniet, voluptas minus doloribus perferendis. Natus, exercitationem, aperiam!</p>
+            <h2 class="text-right mt-5">Your Favorites</h2>
+          </div>
+        </div>
+        <!--row-->
+        
+        <section class="row mt-5" id="favorites">
+          <div class="col-12">
+            <div class="table-scroll mb-2">
+              <table class="table  alert alert-info">
+                <thead class="inverse">
+                  <tr>
+                    <th>track ID</th>
+                    <th>song</th>
+                    <th>artist</th>
+                    <th>album</th>
+                    <th>year</th>
+                  </tr>
+                </thead>
+                <tbody id="my-favs">
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>Crazy</td>
+                    <td>Patsy Cline</td>
+                    <td>Greatest Hits</td>
+                    <td>1961</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--favorites scroll--> 
+            
+          </div>
+          <!--col--> 
+          
+        </section>
+        <!--row-->
+        
+        <section class="row">
+          <form class="col-12 mt-5" >
+            <div class="input-group mb-2 mb-sm-0">
+              <button class="btn btn-primary" id="searchButton" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+              <input type="text" class="form-control" id="search" placeholder="Song, Artist, Keyword">
+            </div>
+          </form>
+          <!--col--> 
+        </section>
+      </section>
+      <!--jumbotron-->      
+     
+        <section class="container results-container" id="results-container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="results-heading">Results for <span>{{term added dynamically?}}</span></h2>
+              <button type="button" id="close-search-container" class="btn float-right">&times;</button>
+            </div>
+            <!--col--> 
+            
+          </div>
+          <!--row-->
+          
+          <div class="row mt-5">
+            <div class="col-12" id="resultsDisplay">
+              <div class="table-scroll">
+                <table class="table">
+                  <thead class="inverse">
+                    <tr>
+                      <th>track ID</th>
+                      <th>song</th>
+                      <th>artist</th>
+                      <th>album</th>
+                      <th>year</th>
+                      <th>fav</th>
+                    </tr>
+                  </thead>
+                  <tbody id="results-items">
+                    <tr data-track="track1">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track2">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track3">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track4">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track5">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track6">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track7">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track8">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track9">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                    <tr data-track="track10">
+                      <td>id</td>
+                      <td>Crazy</td>
+                      <td>Patsy Cline</td>
+                      <td>Greatest Hits</td>
+                      <td>1961</td>
+                      <td><input type="checkbox"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!--table scroll--> 
+              
+            </div>
+            <!--col--> 
+          </div>
+          <!--row-->
+          
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" type="button" id="fav-save">save favorites</button>              
+            </div>
+            <!--row--> 
+          </div>
+          <!--col--> 
+          
+        </section>
+        <!--container--> 
+        
+        <section class="container-fluid detail-container" id="detail-container">
+        
+        	<section class="container detail-wrapper">
+        		
+        		<div class="row">
+        			<div class="col-12 detail-header">
+        			<h2 class="detail-heading">Details</h2>
+        			<button type="button" id="close-detail-container" class="btn float-right">&times;</button>
+        				
+        			</div><!--col-->
+        		</div><!--row-->
+        		
+        		<div class="row mt-5">
+        			<div class="col-4">
+        				
+        				<a href="https://placeholder.com"><img class="img-fluid" src="http://via.placeholder.com/300x300" title="placeholder"></a>
+        			</div>
+        			<div class="col-8">
+        				<h3>Track</h3>
+        				<p id="detail-track">Song title</p>
+        				<h3>Artist</h3>
+        				<p id="detail-name">Name</p>
+        				<h3>Album</h3>
+        				<p id="detail-album">Album Name</p>
+        				<h3>Lyrics</h3>
+        				<div id="detail-lyrics">
+        					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis doloremque cum, quisquam repellendus non aut sunt rem ex laboriosam amet dolores expedita mollitia autem quidem dicta sequi! Vitae, enim, omnis rem explicabo laboriosam optio nulla, sunt iusto, pariatur labore tempore.</p>
+        				</div>
+        			</div>
+        		</div>
+        		
+        		
+        	</section><!--container-->
+        
+        
+        	
+        </section><!--container-fluid-->
+       
+      
+    </section>
+    <!--main content container--> 
+  </main>
+</div>
+<footer>
+  <section class="footer-content container">
+    <p class="text-center text-muted"><small>&copy; 2017 MADS | powered by <a href="https://www.musixmatch.com"> www.musixmatch.com</a></small></p>
+  </section>
+  <!--footer content container--> 
+</footer>
 
-
-    
-    <!--results display-->
-    <!--<section id="resultsDisplay">
+<!--results display--> 
+<!--<section id="resultsDisplay">
       <button class="close" type="button" id="results-close">close results</button>
       <h2>Results for "Crazy"</h2>
       <div id="results">
@@ -444,11 +452,11 @@ MAIN includes
         </table>
  
       </div>
-    </section>-->
-    
-    <!--discover-->
-    
-    <!--<section id="discover">
+    </section>--> 
+
+<!--discover--> 
+
+<!--<section id="discover">
       <h2>Discover</h2>
       <ul id="discover-items">
         <li>discover item</li>
@@ -457,20 +465,20 @@ MAIN includes
         <li>discover item</li>
         <li>discover item</li>
       </ul>
-    </section>-->
-    
-    <!--song detail-->
-    
-    <!--<section id="song-detail">
+    </section>--> 
+
+<!--song detail--> 
+
+<!--<section id="song-detail">
       <p id="song-title"></p>
       <p id="song-artist"></p>
       <p id="song-album"></p>
       <p id="song-country"></p>
       <div id="song-video"></div>
-    </section>-->
-    
-    <!-- test form -->
-    <!--    <section id="test">
+    </section>--> 
+
+<!-- test form --> 
+<!--    <section id="test">
       <form id="test-form">
         <fieldset>
           <legend>test</legend>
@@ -486,12 +494,11 @@ MAIN includes
           <button type="submit" id="test-btn">submit</button>
         </fieldset>
       </form>
-    </section>-->
+    </section>--> 
 
-
-<!--Main Project Javascript-->
-<!--<script type="application/javascript" src="assets/js/app.js"></script>-->
-<!--UI: To be combined with Main js-->
+<!--Main Project Javascript--> 
+<!--<script type="application/javascript" src="assets/js/app.js"></script>--> 
+<!--UI: To be combined with Main js--> 
 <script type="application/javascript" src="assets/js/ui.js"></script> 
 <!-- API Interface --> 
 <!--<script type="application/javascript" src="assets/js/api_if.js"></script>--> 
