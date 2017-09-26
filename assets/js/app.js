@@ -178,7 +178,7 @@ $(searchClose).on("click", function(event){
 
 
 //open details from search result row
-$("#results-items").on("click", "tr", function(){
+$("#results-items").on("click", ".detail", function(){
      console.log("Table row clicked"); 
      var track = $(this).data("track");
      console.log("track", track);
