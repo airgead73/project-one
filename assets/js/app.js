@@ -118,8 +118,7 @@ $("#searchButton").click(function(){
     $("#results-items").empty();
     var searchString = $("#search").val().trim();
     console.log("my search " + searchString);
-    apiObj.keywordSearch(searchString);
-    
+    apiObj.keywordSearch(searchString);    
 });
 
 function open(elem) {
@@ -174,7 +173,7 @@ $(searchClose).on("click", function(event){
 
 
 //open details from search result row
-$("#results-items").on("click", "tr", function(){
+$("#results-items").delegate("tr", "click", function(){
      console.log("Table row clicked"); 
      var track = $(this).data("track");
      console.log("track", track);
