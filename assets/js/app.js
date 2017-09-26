@@ -158,6 +158,7 @@ $(closeAccess).on("click", function(){
 
 $(searchOpen).on("click", function(event){
     event.preventDefault();
+	console.log("search clicked");
     open(results);
 });
 
@@ -168,11 +169,11 @@ $(searchClose).on("click", function(event){
     close(results);
 });
 
-// open details from search result row
-// $("#results-items tr").on("click", function(){
-//  console.log("Table row clicked");   
-//  open(detail);   
-// });
+//open details from search result row
+$("#results-items").on("click", "tr", function(){
+ console.log("Table row clicked");   
+ open(detail);   
+});
 
 $(detailClose).on("click", function(){
     console.log("Closing detail");
