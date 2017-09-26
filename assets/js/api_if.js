@@ -126,7 +126,10 @@ var apiObj = {
 	},
 
 	buildTrack: function(item) {
+		console.log(item);
 		return {
+			cover_art: item.track.album_coverart_100x100,
+			artist_name: item.track.artist_name,
 			track_id: item.track.track_id,
 			track_name: item.track.track_name,
 			lyrics_id: item.track.lyrics_id,
@@ -164,7 +167,7 @@ var apiObj = {
 			}
 
 			console.log('TRACKS', this.tracks);
-			this.showApiData();
+			this.showTracks(this.tracks, "#results-items");
 		};
 
 		if (response.message.body.hasOwnProperty('artist_list')) {
@@ -176,7 +179,7 @@ var apiObj = {
 			this.artist_id = response.message.body.artist_list[0].artist.artist_id;
 			this.artist_name	= response.message.body.artist_list[0].artist.artist_name;
 
-			this.showApiData();
+			this.showTracks();
 		};	
 
 		if (response.message.body.hasOwnProperty('lyrics')) {
@@ -184,19 +187,22 @@ var apiObj = {
 
 			this.lyrics_body = response.message.body.lyrics.lyrics_body;
 
-			this.showApiData();
+			this.showTracks();
 
 		};
 
 		//console.log("Object.keys: ", Object.keys(response)); // shows single key "message" in red
 
 	},
+	populateTrackDetail: function(track){
+			$("#detail-track").html(track.track_name);
+			$("#detail-name").html(track.artist_name);
+			$("#detail-album").html(track.album_name);
+			$("#detail-lyrics").html(track.lyrics_id);
+			$("#detail-cover-art").attr('src',  track.cover_art);
+	},
 
-
-
-	showApiData: function () {
-		//console.log("showApiData function called");
-
+	showTrack: function(track, target){
 		console.log("\n");
 		console.log("======================================");
 		console.log("          API DATA");
@@ -211,7 +217,25 @@ var apiObj = {
 		console.log("\t" + "lyrics_id: ", this.lyrics_id);		
 		console.log("\t" + "lyrics_body: ", this.lyrics_body);	
 		console.log('\n');
-	
+
+		$(target).append(
+			$('<tr>')
+				.data('track', track)
+				.append('<td>' + track.track_id + '</td>')
+				.append('<td>' + track.track_name + '</td>')
+				.append('<td>' + track.artist_name + '</td>')
+				.append('<td>' + track.album_name + '</td>')
+				.append('<td>' + track.lyrics_id + '</td>')
+				.append('<td><input type="checkbox" class="fav" data-for="' + track.track_id + '" type="checkbox"></td>')
+			);
+		},
+
+
+	showTracks: function (tracks, target) {
+		//console.log("showTracks function called");
+		for (var i = 0; i < tracks.length; i++) {
+			this.showTrack(tracks[i], target);
+		}
 	},
 
 	clearApiData: function () {
@@ -488,6 +512,6 @@ function callAjax (queryString) {
     	apiObj.artistSearch("Van Morrison");
     	apiObj.lyricsSearch(15953433);
     	apiObj.countrySearch("it");
-    	apiObj.showApiData();
+    	apiObj.showTracks();
 
     });
