@@ -161,6 +161,7 @@ $(closeAccess).on("click", function(){
 
 $(searchOpen).on("click", function(event){
     event.preventDefault();
+	console.log("search clicked");
     open(results);
 });
 
@@ -171,7 +172,8 @@ $(searchClose).on("click", function(event){
     close(results);
 });
 
-// open details from search result row
+
+//open details from search result row
 $("#results-items").on("click", "tr", function(){
      console.log("Table row clicked"); 
      var track = $(this).data("track");
