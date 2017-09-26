@@ -115,6 +115,9 @@ function writeFavorites(tracks){
 
 //code to write search results to the table, will be a function 
 $("#searchButton").click(function(){
+    // var searchString = $("#search").val().trim();
+    // console.log("my search " + searchString);
+    // apiObj.keywordSearch(searchString);
     $("#results-items")
         .append("<tr><td>Song3</td><td>Track Name</td><td>Artist</td><td>Album</td><td>Year</td><td><input class='fav' data-for='Song3' type='checkbox'></td></tr>");
 });
@@ -169,11 +172,12 @@ $(searchClose).on("click", function(event){
     close(results);
 });
 
+
 //open details from search result row
 $("#results-items").on("click", "tr", function(){
  console.log("Table row clicked");   
  open(detail);   
-});
+
 
 $(detailClose).on("click", function(){
     console.log("Closing detail");
