@@ -127,7 +127,6 @@ MAIN includes
                   </tr>
                 </thead>
                 <tbody id="my-favs">
-  
                 </tbody>
               </table>
             </div>
@@ -148,10 +147,9 @@ MAIN includes
           </form>
           <!--col--> 
         </section>
-      </section>
-      <!--jumbotron-->
-      
-      <!--search field and results display-->
+        <!--row--> 
+        
+        <!--search field and results display-->
         <section class="container results-container"  id="results-container">
           <div class="row">
             <div class="col-12 results-heading">
@@ -178,7 +176,6 @@ MAIN includes
                     </tr>
                   </thead>
                   <tbody id="results-items">
-              
                   </tbody>
                 </table>
               </div>
@@ -192,7 +189,6 @@ MAIN includes
           <div class="row">
             <div class="col-12">
               <button class="btn btn-primary" type="button" id="fav-save">save favorites</button>
-             
             </div>
             <!--row--> 
           </div>
@@ -200,48 +196,53 @@ MAIN includes
           
         </section>
         <!--container--> 
-       
+        
+      </section>
+      <!--jumbotron--> 
       
     </section>
-    <!--main content container--> 
+    <!--main content container-->
     
-       <section class="container-fluid detail-container" id="detail-container">
+    <section class="container-fluid detail-container" id="detail-container">
+      <section class="container detail-wrapper">
+        <div class="row">
+          <div class="col-12 detail-header">
+            <h2 class="detail-heading">Details</h2>
+            <button type="button" id="close-detail-container" class="btn float-right">&times;</button>
+          </div>
+          <!--col--> 
+        </div>
+        <!--row-->
         
-        	<section class="container detail-wrapper">
-        		
-        		<div class="row">
-        			<div class="col-12 detail-header">
-        			<h2 class="detail-heading">Details</h2>
-        			<button type="button" id="close-detail-container" class="btn float-right">&times;</button>
-        				
-        			</div><!--col-->
-        		</div><!--row-->
-        		
-        		<div class="row mt-5">
-        			<div class="col-4">
-        				
-        				<a href="https://placeholder.com"><img class="img-fluid" src="http://via.placeholder.com/300x300" title="placeholder"></a>
-        			</div>
-        			<div class="col-8">
-        				<h3>Track</h3>
-        				<p id="detail-track"></p>
-        				<h3>Artist</h3>
-        				<p id="detail-name"></p>
-        				<h3>Album</h3>
-        				<p id="detail-album"></p>
-        				<h3>Lyrics</h3>
-        				<div id="detail-lyrics">
-        					
-        				</div>
-        			</div>
-        		</div>
-        		
-        		
-        	</section><!--container-->
-        
-        
-        	
-        </section><!--container-fluid-->    
+        <div class="row mt-5">
+          <div class="col-4"> 
+          <a href="https://placeholder.com"><img class="img-fluid" src="http://via.placeholder.com/300x300" title="placeholder"></a> 
+          </div><!--col-->
+          <div class="col-4">
+            <h3>Track</h3>
+            <p id="detail-track"></p>
+            <h3>Artist</h3>
+            <p id="detail-name"></p>
+            <h3>Album</h3>
+            <p id="detail-album"></p>
+            <h3>Lyrics</h3>
+            <div id="detail-lyrics"> </div>
+          </div>
+          <!--col--> 
+          <div class="col-4">
+          <h3>Video</h3>
+          <div>
+          	<iframe id="vidHere" width="300" height="300" src=""></iframe>
+          </div>
+          	
+          </div>
+        </div>
+        <!--row--> 
+        div </section>
+      <!--container--> 
+      
+    </section>
+    <!--container-fluid--> 
     
   </main>
 </div>
@@ -252,14 +253,12 @@ MAIN includes
   <!--footer content container--> 
 </footer>
 
-
 <!--Main Project Javascript--> 
 <script type="application/javascript" src="assets/js/app.js"></script> 
- 
+
 <!-- API Interface --> 
 <script type="application/javascript" src="assets/js/api_if.js"></script> 
 <!-- YOU TUBE API LIBRARY --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 </body>
 </html>
