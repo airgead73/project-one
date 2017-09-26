@@ -13,6 +13,8 @@ var test = null;
  */
 var apiObj = {
 
+	tracks: [],
+
 	keywordSearch: function (searchString, apiName, searchParam) {
 		console.log("apiObj.keyworkSearch fn: searchString: ", searchString);
 		apiName = (typeof apiName !== 'undefined') ?  apiName : 'musixmatch';						// default to musixMatch if no name is given
@@ -123,6 +125,17 @@ var apiObj = {
 
 	},
 
+	buildTrack: function(item) {
+		return {
+			track_id: item.track.track_id,
+			track_name: item.track.track_name,
+			lyrics_id: item.track.lyrics_id,
+			album_id: item.track.album_id,
+			album_name: item.track.album_name,
+			album_art: item.track.album_coverart_100x100
+		};
+	},
+
 	processResponse: function (response) {
 
 		//var myResponse = response;
@@ -139,12 +152,19 @@ var apiObj = {
 			//console.log ("apiObj: processResponse.message.body.track_list[0].track: ", response.message.body.track_list[0].track);
 			//console.log ("apiObj: processResponse.message.body.track_list[0].track.track_id: ", response.message.body.track_list[0].track.track_id);
 
-			this.track_id = response.message.body.track_list[0].track.track_id;
-			this.track_name	= response.message.body.track_list[0].track.track_name;
-			this.lyrics_id = response.message.body.track_list[0].track.lyrics_id;
-			this.album_id = response.message.body.track_list[0].track.album_id;
-			this.album_name = response.message.body.track_list[0].track.album_name;
-			this.album_art = response.message.body.track_list[0].track.album_coverart_100x100;
+			// this.track_id = response.message.body.track_list[0].track.track_id;
+			// this.track_name	= response.message.body.track_list[0].track.track_name;
+			// this.lyrics_id = response.message.body.track_list[0].track.lyrics_id;
+			// this.album_id = response.message.body.track_list[0].track.album_id;
+			// this.album_name = response.message.body.track_list[0].track.album_name;
+			// this.album_art = response.message.body.track_list[0].track.album_coverart_100x100;
+			this.tracks = [];
+			for (var i = 0; i < response.message.body.track_list.length; i++) {
+				this.tracks.push( this.buildTrack(response.message.body.track_list[i]) );
+			}
+
+			console.log('TRACKS', this.tracks);
+			this.showApiData();
 		};
 
 		if (response.message.body.hasOwnProperty('artist_list')) {
@@ -155,6 +175,8 @@ var apiObj = {
 
 			this.artist_id = response.message.body.artist_list[0].artist.artist_id;
 			this.artist_name	= response.message.body.artist_list[0].artist.artist_name;
+
+			this.showApiData();
 		};	
 
 		if (response.message.body.hasOwnProperty('lyrics')) {
