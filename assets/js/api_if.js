@@ -83,7 +83,7 @@ var apiObj = {
 		var searchType = getSearchType('countrySearch');
 		var key = getKey(apiName);
 		queryString = baseUrl + searchType + 'country=' + searchString + '&' + searchParam + key;
-		console.log("apiObj.lyricsSearch: queryString: ", queryString);
+		console.log("apiObj.countrySearch: queryString: ", queryString);
 
 		this.callAjax(queryString);
 	},
@@ -106,11 +106,11 @@ var apiObj = {
 	},
 
 	callAjax: function (queryString) {
-  		console.log("apiObj.callAjax function");
+  		//console.log("apiObj.callAjax function");
 
 		var queryString = queryString;
 
-    	console.log("callAjax function: queryString: ", queryString);
+    	//console.log("callAjax function: queryString: ", queryString);
 
 		$.ajax({
 		  	dataType: 'json',
@@ -134,10 +134,10 @@ var apiObj = {
 		};
 
 		if (response.message.body.hasOwnProperty('track_list')) {
-			console.log ("apiObj: processResponse.message.body.track_list: ", response.message.body.track_list);
-			console.log ("apiObj: processResponse.message.body.track_list[0]: ", response.message.body.track_list[0]);
-			console.log ("apiObj: processResponse.message.body.track_list[0].track: ", response.message.body.track_list[0].track);
-			console.log ("apiObj: processResponse.message.body.track_list[0].track.track_id: ", response.message.body.track_list[0].track.track_id);
+			//console.log ("apiObj: processResponse.message.body.track_list: ", response.message.body.track_list);
+			//console.log ("apiObj: processResponse.message.body.track_list[0]: ", response.message.body.track_list[0]);
+			//console.log ("apiObj: processResponse.message.body.track_list[0].track: ", response.message.body.track_list[0].track);
+			//console.log ("apiObj: processResponse.message.body.track_list[0].track.track_id: ", response.message.body.track_list[0].track.track_id);
 
 			this.track_id = response.message.body.track_list[0].track.track_id;
 			this.track_name	= response.message.body.track_list[0].track.track_name;
@@ -148,17 +148,17 @@ var apiObj = {
 		};
 
 		if (response.message.body.hasOwnProperty('artist_list')) {
-			console.log ("apiObj: processResponse.message.body.artist_list: ", response.message.body.artist_list);
-			console.log ("apiObj: processResponse.message.body.artist_list[0]: ", response.message.body.artist_list[0]);
-			console.log ("apiObj: processResponse.message.body.artist_list[0].artist: ", response.message.body.artist_list[0].artist);
-			console.log ("apiObj: processResponse.message.body.artist_list[0].artist.artist_id: ", response.message.body.artist_list[0].artist.artist_id);
+			//console.log ("apiObj: processResponse.message.body.artist_list: ", response.message.body.artist_list);
+			//console.log ("apiObj: processResponse.message.body.artist_list[0]: ", response.message.body.artist_list[0]);
+			//console.log ("apiObj: processResponse.message.body.artist_list[0].artist: ", response.message.body.artist_list[0].artist);
+			//console.log ("apiObj: processResponse.message.body.artist_list[0].artist.artist_id: ", response.message.body.artist_list[0].artist.artist_id);
 
 			this.artist_id = response.message.body.artist_list[0].artist.artist_id;
 			this.artist_name	= response.message.body.artist_list[0].artist.artist_name;
 		};	
 
 		if (response.message.body.hasOwnProperty('lyrics')) {
-			console.log ("apiObj: processResponse.message.body.lyrics: ", response.message.body.lyrics);
+			//console.log ("apiObj: processResponse.message.body.lyrics: ", response.message.body.lyrics);
 
 			this.lyrics_body = response.message.body.lyrics.lyrics_body;
 
@@ -166,7 +166,7 @@ var apiObj = {
 
 		};
 
-		console.log("Object.keys: ", Object.keys(response)); // shows single key "message" in red
+		//console.log("Object.keys: ", Object.keys(response)); // shows single key "message" in red
 
 	},
 
