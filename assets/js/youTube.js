@@ -3,18 +3,18 @@ $(document).ready(function(){
     $("form").submit(function() { return false; }); // prevents page from reload on "enter press"
 });
   var q ;
-  var buildUrl = "https://www.googleapis.com/youtube/v3/search" + q
+  var buildUrl = "https://www.googleapis.com/youtube/v3/search" + q;
 //establish variables to build AJAX call
 
-$("#searchButton").on("click", function(){
-    q = $("#search").val()
-  console.log(q)
-  $("#vidTitle").html(q)
- 
-// user input that stores the search variable
+	$("#results-items").on("click", ".detail", function () {
+		q = $(this).data('track-name');
+		console.log(q);
+		$("#vidTitle").html(q);
 
-  q = $("#search").val()
-  $("#vidTitle").html(q)
+		// user input that stores the search variable
+
+		q = $(this).data('track-name');
+		$("#vidTitle").html(q);
 
   $.ajax({
     method: "GET",
@@ -25,7 +25,7 @@ $("#searchButton").on("click", function(){
      var results = response.items;
      var youtubeSearch = 'https://www.youtube.com/embed/' + results[0].id.videoId;
      
-     $("#vidHere").attr("src", youtubeSearch + "?autoplay=1")
+     $("#vidHere").attr("src", youtubeSearch + "?autoplay=1");
     });
     
   });

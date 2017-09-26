@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" name="viewport" />
+<title>MADSONGS</title>
+<!--bootstrap css-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<!--custom css-->
+<link rel="stylesheet" href="assets/css/style.css" type="text/css">
+<!--jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Firebase Reference -->
+<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+<!-- YOU TUBE API SETUP -->
+<script src="assets/js/youTube.js"></script>
+<!--fontawesome-->
+<link rel="stylesheet" href="https://use.fontawesome.com/ef0823209c.css">
+</head>
+
+<body>
+<div class="page"> 
+  
+  <!--***********************************************************************************************
+
+HEADER includes 
+    -logo
+    -sign up / log in, which links to profile after log in
+    
+-->
+  
+  <header>
+    <section class="header-content container">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="team-name">MADS</h1>
+          <input class="float-right btn btn-link" id="open-user-forms" type="button"  data-status="notLogged" value="log in / sign up">
+        </div>
+        <!--col--> 
+      </div>
+      <!--row--> 
+      
+    </section>
+    
+    <!-- user sign up and log in -->
+    
+    <section class="container-fluid user-forms" id="user-forms">
+      <form class="container mt-5 user-form">
+        <header class="row">
+          <div class="col-12"> <img class="form-logo" src="assets/images/logo.svg" alt="MADSONGS Logo">
+            <button type="button" id="close-user-forms" class="btn float-right">&times;</button>
+          </div>
+          <!--col--> 
+        </header>
+        <!--row-->
+        <div class="row"> 
+          <!--sign up-->
+          <fieldset class="col-12 col-sm-6">
+            <legend>sign up <small class="text-muted">(if <u>not</u> a member)</small></legend>
+            <div class="form-group">
+              <label for="name" class="form-control-label">name</label>
+              <input id="name" type="text" class="form-control" placeholder="your name">
+              <label for="new-un" class="form-control-label">username</label>
+              <input id="new-un" type="text" class="form-control" placeholder="choose a username between 8 and 16 characters">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="reset">reset</button>
+              <button id="signup" class="btn btn-primary btn-user-access" type="submit">sign up</button>
+            </div>
+          </fieldset>
+          <!--log in-->
+          <fieldset class="col-12 col-sm-6">
+            <legend>log in <small class="text-muted">(if <u>already</u> a member)</small></legend>
+            <div class="form-group">
+              <label for="un" class="form-control-label">username</label>
+              <input id="un" type="text" class="form-control" placeholder="your username">
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="reset">reset</button>
+              <button id="login" class="btn btn-primary btn-user-access" type="submit">log in</button>
+              <div id="login-alert"></div>
+            </div>
+          </fieldset>
+        </div>
+        <!--row-->
+      </form>
+      <!--container--> 
+      
+    </section>
+    <!--container fluid--> 
+    
+  </header>
+  
+  <!--***********************************************************************************************
+
+MAIN includes 
+    -main search field
+    -results from main search 
+    -profile (favorites) 
+    -discover
+-->
+  
+  <main>
+    <section class="main-content container">
+      <section class="jumbotron" id="profile">
+        <div class="row">
+          <div class="col-12 col-md-6" id="main-logo"> <img class="main-logo-img" src="assets/images/logo.svg" alt="logo"> </div>
+          <!--col-->
+          
+          <div class="col-12 col-md-6 intro" id="intro">
+            <p><span class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> <span class="span-mobile-only">Inventore architecto itaque eius nemo, tenetur culpa, quidem debitis eveniet, voluptas minus doloribus perferendis. Natus, exercitationem, aperiam!</span></p>
+            <h2 class="text-right mt-5">Your Favorites</h2>
+          </div>
+        </div>
+        <!--row-->
+        
+        <section class="row mt-5" id="favorites">
+          <div class="col-12">
+            <div class="table-scroll mb-2">
+              <table class="table  alert alert-info">
+                <thead class="inverse">
+                  <tr>
+                    <th>track ID</th>
+                    <th>song</th>
+                    <th>artist</th>
+                    <th>album</th>
+                    <th>year</th>
+                  </tr>
+                </thead>
+                <tbody id="my-favs">
+                </tbody>
+              </table>
+            </div>
+            <!--favorites scroll--> 
+            
+          </div>
+          <!--col--> 
+          
+        </section>
+        <!--row-->
+        
+        <section class="row">
+          <form class="col-12 mt-5" >
+            <div class="input-group mb-2 mb-sm-0">
+              <button class="btn btn-primary" id="searchButton" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+              <input type="text" class="form-control" id="search" placeholder="Keywords, Songs, Albums">
+            </div>
+          </form>
+          <!--col--> 
+        </section>
+        <!--row--> 
+        
+        <!--search field and results display-->
+        <section class="container results-container alert alert-info"  id="results-container">
+          <div class="row">
+            <div class="col-12 results-heading">
+              <h2 class="results-heading">Results for <span>{{term added dynamically?}}</span></h2>
+              <button type="button" id="close-search-container" class="btn float-right">&times;</button>
+            </div>
+            <!--col--> 
+            
+          </div>
+          <!--row-->
+          
+          <div class="row mt-5">
+            <div class="col-12" id="resultsDisplay">
+              <div class="table-scroll">
+                <table class="table">
+                  <thead class="inverse">
+                    <tr>
+                      <th>track ID</th>
+                      <th>song</th>
+                      <th>artist</th>
+                      <th>album</th>
+                      <th>year</th>
+                      <th>fav</th>
+                    </tr>
+                  </thead>
+                  <tbody id="results-items">
+                  </tbody>
+                </table>
+              </div>
+              <!--table scroll--> 
+              
+            </div>
+            <!--col--> 
+          </div>
+          <!--row-->
+          
+          <div class="row">
+            <div class="col-12">
+              <button class="btn btn-primary" type="button" id="fav-save">save favorites</button>
+              <div id="fav-save-alert"></div>
+            </div>
+            <!--row--> 
+          </div>
+          <!--col--> 
+          
+        </section>
+        <!--container--> 
+        
+      </section>
+      <!--jumbotron--> 
+      
+    </section>
+    <!--main content container-->
+    
+    <section class="container-fluid detail-container" id="detail-container">
+      <section class="container detail-wrapper">
+        <div class="row">
+          <div class="col-12 detail-header">
+            <h2 class="detail-heading">Details</h2>
+            <button type="button" id="close-detail-container" class="btn float-right">&times;</button>
+          </div>
+          <!--col--> 
+        </div>
+        <!--row-->
+        
+        <div class="row mt-5">
+          <div class="col-4"> 
+          <a href="https://placeholder.com"><img id="detail-cover-art"class="img-fluid" src="http://via.placeholder.com/300x300" title="placeholder"></a>
+          </div><!--col-->
+          <div class="col-12 col-sm-4">
+            <h3>Track</h3>
+            <p id="detail-track"></p>
+            <h3>Artist</h3>
+            <p id="detail-name"></p>
+            <h3>Album</h3>
+            <p id="detail-album"></p>
+            <h3>Lyrics</h3>
+            <div id="detail-lyrics"> </div>
+          </div>
+          <!--col--> 
+          <div class="col-12 col-sm-4">
+          <h3>Video</h3>
+          <div>
+          	<iframe id="vidHere" width="300" height="300" src=""></iframe>
+          </div>
+          	
+          </div>
+        </div>
+        <!--row--> 
+        </section>
+      <!--container--> 
+      
+    </section>
+    <!--container-fluid--> 
+    
+  </main>
+</div>
+<footer>
+  <section class="footer-content container">
+    <p class="text-center text-muted"><small>&copy; 2017 MADS | powered by <a href="https://www.musixmatch.com"> www.musixmatch.com</a></small></p>
+  </section>
+  <!--footer content container--> 
+</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- API Interface --> 
+<script type="application/javascript" src="assets/js/api_if.js"></script> 
+<!--Main Project Javascript--> 
+<script type="application/javascript" src="assets/js/app.js"></script> 
+</body>
+</html>

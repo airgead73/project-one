@@ -42,7 +42,7 @@ function getCurrentUser(u, cb) {
 function changeUserStatus() {
     var userStatus = $(openAccess).attr("data-status");
     $(openAccess).attr("data-status", "logged");
-    $(openAccess).attr("value", "view your favorites");
+    $(openAccess).attr("value", "log out");
 }
 
 //sign in to application
@@ -59,6 +59,8 @@ $("#login").on("click", function(){
                 console.log(sv.tracks[key]);
             }            
         });
+		close(userForms);
+		open(profile);
     }
 });
 
@@ -76,6 +78,8 @@ $("#signup").on("click", function(){
     getCurrentUser(username, function(sv) {
         // console.log("i am in the callback function");
     });
+	close(userForms);
+	open(profile);
 });
 
 //---save favorites 
@@ -173,7 +177,7 @@ $(searchClose).on("click", function(event){
 
 
 //open details from search result row
-$("#results-items").delegate("tr", "click", function(){
+$("#results-items").on("click", ".detail", function(){
      console.log("Table row clicked"); 
      var track = $(this).data("track");
      console.log("track", track);
