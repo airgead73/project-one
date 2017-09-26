@@ -4,162 +4,163 @@ Base
 
 */
 html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
 /***************************************
 
 BUTTONS
 
 */
 .btn {
-	border-radius: 0;
-}
-.btn:hover {
-	cursor: pointer;
-}
+  border-radius: 0; }
+  .btn:hover {
+    cursor: pointer; }
+
 #searchButton {
-	width: 75px;
-	background-color: darkgray;
-	border-color: darkgray;
-}
+  width: 75px;
+  background-color: darkgray;
+  border-color: darkgray; }
+
 /***************************************
 
 TABLES
 
 */
 .table-scroll {
-	max-height: 400px;
-	overflow-y: scroll;
-}
+  max-height: 400px;
+  overflow-y: scroll; }
+
+/***************************************
+
+IMAGES
+
+*/
+.main-logo-img {
+  display: block;
+  width: 45%;
+  margin: 0 auto;
+  position: relative; }
+
 /***************************************
 
 FORMS
 
 */
 .user-forms {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 3;
-}
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 3; }
+
 .user-form {
-	background-color: #ffffff;
-	padding: 20px 20px 40px 20px;
-}
-.user-form fieldset {
-	padding: 40px 20px;
-}
-.user-form fieldset:first-of-type {
-	border-bottom: 2px solid #cdd5dc;
-}
-.user-form legend {
-	position: relative;
-	top: 25px;
-}
+  background-color: #ffffff;
+  padding: 20px 20px 40px 20px; }
+  .user-form fieldset {
+    padding: 40px 20px; }
+    .user-form fieldset:first-of-type {
+      border-bottom: 2px solid #cdd5dc; }
+  .user-form legend {
+    position: relative;
+    top: 25px; }
+
 .form-logo {
-	display: inline-block;
-	height: 75px;
-}
+  display: inline-block;
+  height: 75px; }
+
 legend small {
-	font-size: .7em;
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-style: italic;
-}
+  font-size: .7em;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic; }
+
 /***************************************
 
 SEARCH
 
 */
 .results-container {
-	padding: 40px;
-}
+  padding: 40px; }
+
 .results-header {
-	position: relative;
-}
+  position: relative; }
+
 .results-heading {
-	display: inline-block;
-}
+  display: inline-block; }
+
 /***************************************
 
 DETAIL
 
 */
 .detail-container {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.7);
-	z-index: 3;
-}
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 3; }
+
 .detail-wrapper {
-	background-color: #ffffff;
-	margin-top: 125px;
-	padding: 50px 40px;
-}
+  background-color: #ffffff;
+  margin-top: 125px;
+  padding: 50px 40px; }
+
 .detail-header {
-	position: relative;
-}
+  position: relative; }
+
 .detail-heading {
-	display: inline-block;
-}
+  display: inline-block; }
+
 #results-items tr {
-	-webkit-transition: .278s;
-	-o-transition: .278s;
-	transition: .278s;
-}
-#results-items tr:hover {
-	cursor: pointer;
-	background-color: #cdd5dc;
-}
+  -webkit-transition: .278s;
+  -o-transition: .278s;
+  transition: .278s; }
+  #results-items tr:hover {
+    cursor: pointer;
+    background-color: #cdd5dc; }
+
 /***************************************
 
 HEADER
 
 */
 .team-name {
-	display: inline-block;
-	font-size: 1.75rem;
-}
+  display: inline-block;
+  font-size: 1.75rem; }
+
 /***************************************
 
 MAIN
 
 */
 .page {
-	min-height: 100%;
-}
+  min-height: 100%; }
+
 main {
-	padding-bottom: 50px;
-}
-.main-logo-img {
-	max-width: 100%;
-	position: relative;
-}
+  padding-bottom: 50px; }
+
 .intro p {
-	margin: 120px 40px 0 40px;
-}
+  margin: 20px; }
+
 .jumbotron h2 {
-	display: none;
-}
+  display: none; }
+
 .alert-info {
-	background-color: #ffffff;
-}
+  background-color: #ffffff; }
+
 /***************************************
 
 FOOTER
 
 */
 footer {
-	height: 50px;
-	margin-top: -50px;
-}
+  height: 50px;
+  margin-top: -50px; }
 
 /***************************************
 
@@ -167,60 +168,63 @@ MEDIA QUERIES
 
 */
 @media (min-width: 576px) {
-.user-form fieldset:first-of-type {
-	border-right: 2px solid #cdd5dc;
-	border-bottom: none;
-	padding-right: 40px;
-}
-.user-form fieldset:last-of-type {
-	padding-left: 40px;
-}
-}
+  .user-form fieldset:first-of-type {
+    border-right: 2px solid #cdd5dc;
+    border-bottom: none;
+    padding-right: 40px; }
+  .user-form fieldset:last-of-type {
+    padding-left: 40px; } }
+
+@media (min-width: 768px) {
+  .main-logo-img {
+    width: 100%; } }
+
+@media (min-width: 992px) {
+  .intro p {
+    margin: 120px 40px 0 40px; } }
+
 /***************************************
 
 JS-BEHAVIOR
 
 */
 *.js-inactive {
-	display: none;
-}
+  display: none; }
+
 #user-forms {
-	display: none;
-}
+  display: none; }
+
 #user-forms.js-active {
-	display: block;
-}
+  display: block; }
+
 #favorites {
-	display: none;
-}
+  display: none; }
+
 .js-active #favorites {
-	display: block;
-}
-.js-active #favorites h2 {
-	display: block;
-}
+  display: block; }
+  .js-active #favorites h2 {
+    display: block; }
+
 .jumbotron.js-active {
-	margin-top: 0;
-	padding-top: 0;
-}
-.jumbotron.js-active h2 {
-	display: block;
-}
+  margin-top: 0;
+  padding-top: 0; }
+  .jumbotron.js-active h2 {
+    display: block; }
+
 .js-active .main-logo-img {
-	top: 10px;
-}
+  top: 10px; }
+
 .js-active .intro p {
-	display: none;
-}
+  display: none; }
+
 #results-container {
-	display: none;
-}
+  display: none; }
+
 #results-container.js-active {
-	display: block;
-}
+  display: block; }
+
 #detail-container {
-	display: none;
-}
+  display: none; }
+
 #detail-container.js-active {
-	display: block;
-}
+  display: block; }
