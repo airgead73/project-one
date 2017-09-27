@@ -150,6 +150,7 @@ $("#search").keypress(function(event){
 
 function open(elem) {
 	$(elem).addClass("js-active");
+
 }
 
 function close(elem) {
@@ -197,6 +198,7 @@ $(searchOpen).on("click", function (event) {
 	event.preventDefault();
 	console.log("search clicked");
 	open(results);
+	$(profile).addClass("min-banner");
 });
 
 
@@ -204,6 +206,7 @@ $(searchOpen).on("click", function (event) {
 $(searchClose).on("click", function (event) {
 	event.preventDefault();
 	close(results);
+	$(profile).removeClass("min-banner");
 });
 
 function reset() {
