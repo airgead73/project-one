@@ -28,15 +28,16 @@ BUTTONS
 TABLES
 
 */
-.table-scroll {
-  max-height: 400px;
-  overflow-y: scroll; }
-
 /***************************************
 
 IMAGES
 
 */
+.main-logo-img {
+  max-width: 50%;
+  margin: 0 auto;
+  display: block; }
+
 /***************************************
 
 FORMS
@@ -121,8 +122,8 @@ DETAIL
 FAVORITES
 
 */
-.fav-heading {
-  color: green; }
+#my-favs tr td:nth-of-type(6) {
+  display: none; }
 
 /***************************************
 
@@ -146,6 +147,11 @@ main {
 
 /***************************************
 
+JUMBOTRON
+
+*/
+/***************************************
+
 FOOTER
 
 */
@@ -166,6 +172,19 @@ MEDIA QUERIES
   .user-form fieldset:last-of-type {
     padding-left: 40px; } }
 
+@media (min-width: 768px) {
+  .main-logo-img {
+    margin: 0;
+    max-width: 100%; }
+  .intro {
+    padding: 60px 50px 0 50px; }
+  .jumbotron {
+    padding: 2rem; }
+  .jumbotron .row {
+    padding-bottom: 50px; }
+  .jumbotron.js-active .row {
+    padding-bottom: 0; } }
+
 /***************************************
 
 JS-BEHAVIOR
@@ -185,7 +204,31 @@ JS-BEHAVIOR
 #favorites {
   display: none; }
 
+.js-active #favorites {
+  display: block; }
+
+.fav-heading {
+  display: none; }
+
+.js-active .fav-heading {
+  display: block; }
+
+.js-active .intro {
+  display: none; }
+
 /* jumbotron */
+.jumbotron.js-active {
+  padding-top: .75rem; }
+
+#main-logo,
+#intro {
+  max-width: 50%; }
+
+.js-active .main-logo-img {
+  height: 70px;
+  margin-left: 0;
+  max-width: none; }
+
 /* results */
 #results-container {
   display: none; }
