@@ -204,7 +204,8 @@ $(document).ready(function(){
         database.ref('users').child(userId).once('value').then(function(snapshot) {
             var sv = snapshot.val();
             for(var key in sv.tracks) {
-               writeFavorites(sv.tracks[key]);
+               //writeFavorites(sv.tracks[key]);
+               apiObj.songSearch(sv.tracks[key]);
                console.log(sv.tracks[key]);
             }        
         });

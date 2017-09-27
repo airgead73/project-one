@@ -14,6 +14,7 @@ var test = null;
 var apiObj = {
 
 	tracks: [],
+	track: '',
 
 	keywordSearch: function (searchString, apiName, searchParam) {
 		console.log("apiObj.keyworkSearch fn: searchString: ", searchString);
@@ -33,13 +34,13 @@ var apiObj = {
 	songSearch: function (searchString, apiName, searchParam) {
 		console.log("apiObj.songSearch fn: searchString: ", searchString);
 		apiName = (typeof apiName !== 'undefined') ?  apiName : 'musixmatch';		// default to musixMatch if no name is given
-		searchParam = (typeof searchParam !== 'undefined') ?  searchParam : 'page_size=10&page=1&s_track_rating=desc&';	// default to this if no param is given\
+		searchParam = (typeof searchParam !== 'undefined') ?  searchParam : '';	// default to this if no param is given\
 
 		var search = searchString;
 		var baseUrl = getBaseUrl(apiName);
-		var searchType = getSearchType('trackSearch');
+		var searchType = getSearchType('songSearch');
 		var key = getKey(apiName);
-		queryString = baseUrl + searchType + 'q_track=' + searchString + '&' + searchParam + key;
+		queryString = baseUrl + searchType + 'track_id=' + searchString + '&' + searchParam + key;
 		console.log("apiObj.songSearch: queryString: ", queryString);
 
 		this.callAjax(queryString);
@@ -166,8 +167,27 @@ var apiObj = {
 				this.tracks.push( this.buildTrack(response.message.body.track_list[i]) );
 			}
 
-			console.log('TRACKS', this.tracks);
+			console.log('TRACKS: ', this.tracks);
 			this.showTracks(this.tracks, "#results-items");
+		};
+
+		if (response.message.body.hasOwnProperty('track')) {
+			//console.log ("apiObj: processResponse.message.body.track_list: ", response.message.body.track_list);
+			//console.log ("apiObj: processResponse.message.body.track_list[0]: ", response.message.body.track_list[0]);
+			//console.log ("apiObj: processResponse.message.body.track_list[0].track: ", response.message.body.track_list[0].track);
+			//console.log ("apiObj: processResponse.message.body.track_list[0].track.track_id: ", response.message.body.track_list[0].track.track_id);
+
+			// this.track_id = response.message.body.track_list[0].track.track_id;
+			// this.track_name	= response.message.body.track_list[0].track.track_name;
+			// this.lyrics_id = response.message.body.track_list[0].track.lyrics_id;
+			// this.album_id = response.message.body.track_list[0].track.album_id;
+			// this.album_name = response.message.body.track_list[0].track.album_name;
+			// this.album_art = response.message.body.track_list[0].track.album_coverart_100x100;
+			this.track = this.buildTrack(response.message.body);
+
+			console.log('TRACK: ', this.track);
+			this.showTrack(this.track, "#my-favs");
+			//this.showTracks(this.tracks, "#results-items");
 		};
 
 		if (response.message.body.hasOwnProperty('artist_list')) {
@@ -203,6 +223,8 @@ var apiObj = {
 	},
 
 	showTrack: function(track, target){
+		console.log("track: ", track);
+		console.log("target: ", target);
 		console.log("\n");
 		console.log("======================================");
 		console.log("          API DATA");
@@ -225,7 +247,7 @@ var apiObj = {
 				.append('<td>' + track.track_name + '</td>')
 				.append('<td>' + track.artist_name + '</td>')
 				.append('<td>' + track.album_name + '</td>')
-				.append('<td>' + track.lyrics_id + '</td>')
+				//.append('<td>' + track.lyrics_id + '</td>')
 				.append('<td><input type="checkbox" class="fav" data-for="' + track.track_id + '" type="checkbox"></td>')
 			);
 		},
@@ -462,8 +484,8 @@ function getSearchType (searchType, secondParam) {
 		case 'countrySearch': 			// musixMatch only for now - chart.artists.get?page=1&page_size=3&country=it& 'apikey=4dd81b4d24fc4b88c41b0e8638cc97aa'
 			searchTypeString = 'chart.artists.get?';
 			break;
-		case 'trackSearch': 			// fma - trackSearch?q=deerhoof&limit=10' 
-			searchTypeString = 'track.search?';
+		case 'songSearch': 			// fma - trackSearch?q=deerhoof&limit=10' 
+			searchTypeString = 'track.get?';
 			break;		
 		case 'videoSearch': 			// youTube part=snippet&order=rating&type=video&videoDefinition=high&videoEmbeddable=true& 'key=AIzaSyAKbYAjNo72FOZ6S0XZoW395R2LTWIm8II'
 			searchTypeString = '';
@@ -507,11 +529,11 @@ function callAjax (queryString) {
 //$(document).on("click", <"h1">, queryApi(musixMatch, chartartistsget));
 //$(document).ready(function(){
     $(".team-name").click(function() {
-    	apiObj.keywordSearch("sun");    	
-    	apiObj.songSearch("rocket man");
-    	apiObj.artistSearch("Van Morrison");
-    	apiObj.lyricsSearch(15953433);
-    	apiObj.countrySearch("it");
-    	apiObj.showTracks();
+    	//apiObj.keywordSearch("sun");    	
+    	apiObj.songSearch("15445219");
+    	//apiObj.artistSearch("Van Morrison");
+    	//apiObj.lyricsSearch(15953433);
+    	//apiObj.countrySearch("it");
+    	//apiObj.showTracks();
 
     });
