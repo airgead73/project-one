@@ -124,13 +124,29 @@ function writeFavorites(tracks){
     .append("<tr><td>"+tracks+"</td><td>Track Name</td><td>Artist</td><td>Album</td></tr>");
 }
 
-//code to write search results to the table, will be a function 
+// add search results when user clicks search button 
 $("#searchButton").click(function(){
     $("#results-items").empty();
     var searchString = $("#search").val().trim();
     console.log("my search " + searchString);
     $("#searchterm").html(searchString);
     apiObj.keywordSearch(searchString);    
+});
+
+//add search results when user hits enter with search field in focus
+
+$("#search").on("keyup", function(event){
+	var thisKey = event.keyCode;
+	if (thisKey === 13) {
+		$("#results-items").empty();
+		var searchString = $("#search").val().trim();
+		console.log("my search " + searchString);
+		$("#searchterm").html(searchString);
+		apiObj.keywordSearch(searchString);
+	} else {
+		return;
+	}
+	
 });
 
 function open(elem) {
