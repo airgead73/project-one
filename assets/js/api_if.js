@@ -198,7 +198,7 @@ var apiObj = {
 			// this.album_id = response.message.body.track_list[0].track.album_id;
 			// this.album_name = response.message.body.track_list[0].track.album_name;
 			// this.album_art = response.message.body.track_list[0].track.album_coverart_100x100;
-			this.track = this.buildTrack2(response.message.body);
+			this.track = this.buildTrack(response.message.body);
 
 			console.log('TRACK: ', this.track);
 			this.showTrack(this.track, "#my-favs");

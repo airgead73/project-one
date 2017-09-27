@@ -33,7 +33,7 @@ function getCurrentUser(u, cb) {
         var userId = snapshot.key;       
         sessionStorage.setItem('userId', userId);
         sessionStorage.setItem('username', u);
-        changeUserStatus(username);
+        changeUserStatus(u);
         var newStatus = $(openAccess).attr("data-status");
         console.log("Log in was clicked. User status is now " + newStatus +"."); 
         cb(sv);
@@ -49,14 +49,16 @@ function changeUserStatus(username) {
 //sign in to application
 $("#login").on("click", function(){
     event.preventDefault();
+    $("#my-favs").empty();
     loginuser = $("#un").val().trim();
     console.log("you entered loginuser name: " + loginuser);
     if(loginuser === ""){
-        console.log("Enter a username to continue");
+        $("#login-alert").html("Enter a username to continue");
     }else{
         getCurrentUser(loginuser, function(sv) {
             for(var key in sv.tracks) {
-               writeFavorites(sv.tracks[key]);
+                apiObj.songSearch(sv.tracks[key]);
+               //writeFavorites(sv.tracks[key]);
                 console.log(sv.tracks[key]);
             }            
         });
@@ -85,6 +87,7 @@ $("#signup").on("click", function(){
 
 //---save favorites 
 $('#fav-save').click(function() {
+    event.preventDefault();
     var userId = sessionStorage.getItem('userId');
     if(userId === null){
         //alert("You need to log in to save a track");
@@ -106,7 +109,8 @@ $('#fav-save').click(function() {
                 if(currentTracks.indexOf(track) === -1){
                     database.ref("users/"+ userId +"/tracks").push(track);
                     currentTracks.push(track);
-                    writeFavorites(track);
+                    apiObj.songSearch(track);
+                    //writeFavorites(track);
                 }
             });
         });
@@ -151,6 +155,7 @@ $(openAccess).on("click", function(){
         $(profile).addClass("js-active");
         $("#main-logo").removeClass("col-6").addClass("col-2");
         $("intro").removeClass("col-6").addClass("col-10");
+        open(userForms);
     }   
 });
 
