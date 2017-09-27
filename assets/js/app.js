@@ -49,7 +49,7 @@ function changeUserStatus(username) {
 //sign in to application
 $("#login").on("click", function(){
     event.preventDefault();
-    $("#my-favs").empty();
+    reset();
     loginuser = $("#un").val().trim();
     console.log("you entered loginuser name: " + loginuser);
     if(loginuser === ""){
@@ -69,6 +69,7 @@ $("#login").on("click", function(){
 
 $("#signup").on("click", function(){
   event.preventDefault();
+    reset();
     name = $("#name").val().trim();
     username = $("#new-un").val().trim();
     // database.ref("users/" +username).set({
@@ -91,7 +92,7 @@ $('#fav-save').click(function() {
     var userId = sessionStorage.getItem('userId');
     if(userId === null){
         //alert("You need to log in to save a track");
-        $("#loginerror").append("<p>You need to log in to save favorites</p>");
+        $("#fav-save-alert").append("<p>You need to log in to save favorites</p>");
         console.log("you need to login");
     }else{
         var currentTracks = [];
@@ -155,6 +156,9 @@ $(openAccess).on("click", function(){
         $(profile).addClass("js-active");
         $("#main-logo").removeClass("col-6").addClass("col-2");
         $("intro").removeClass("col-6").addClass("col-10");
+        $("#un").val("");
+        $("#name").val("");
+        $("#new-un").val("");
         open(userForms);
     }   
 });
@@ -182,6 +186,24 @@ $(searchClose).on("click", function(event){
     close(results);
 });
 
+function reset(){
+    $("#my-favs").empty();
+    $("#results-items").empty();
+    $("#search").val("");
+    $("#fav-save-alert").html("");
+    $("#login-alert").html("");
+
+    close(results);
+}
+
+$("#my-favs").on("click", ".detail", function(){
+     console.log("Table row clicked"); 
+     var track = $(this).data("track");
+     console.log("track", track);
+     apiObj.populateTrackDetail(track);  
+     open(detail);   
+});
+
 
 //open details from search result row
 $("#results-items").on("click", ".detail", function(){
@@ -196,7 +218,6 @@ $(detailClose).on("click", function(){
     console.log("Closing detail");
     close(detail);  
 });
-
 
 $(document).ready(function(){
     var userId = sessionStorage.getItem('userId');
