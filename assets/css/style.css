@@ -140,10 +140,6 @@ FAVORITES
 #my-favs tr td:nth-of-type(6) {
   display: none; }
 
-#favorites .table {
-  padding-left: 50px;
-  padding-right: 50px; }
-
 /***************************************
 
 HEADER
@@ -195,13 +191,18 @@ MEDIA QUERIES
   .main-logo-img {
     margin: 0;
     max-width: 100%; }
+  .min-banner .main-logo-img {
+    height: 70px;
+    margin-left: 0;
+    max-width: none; }
   .intro {
     padding: 60px 50px 0 50px; }
   .jumbotron {
     padding: 2rem; }
   .jumbotron .row {
     padding-bottom: 50px; }
-  .jumbotron.js-active .row {
+  .jumbotron.js-active .row,
+  .jumbotron.min-banner .row {
     padding-bottom: 0; } }
 
 /***************************************
@@ -232,6 +233,7 @@ JS-BEHAVIOR
 .js-active .fav-heading {
   display: block; }
 
+.min-banner .intro,
 .js-active .intro {
   display: none; }
 
@@ -239,11 +241,15 @@ JS-BEHAVIOR
 .jumbotron.js-active {
   padding-top: .75rem; }
 
-#main-logo,
-#intro {
-  max-width: 50%; }
+.jumbotron.min-banner {
+  padding-top: .75rem; }
 
 .js-active .main-logo-img {
+  height: 70px;
+  margin-left: 0;
+  max-width: none; }
+
+.min-banner .main-logo-img {
   height: 70px;
   margin-left: 0;
   max-width: none; }
