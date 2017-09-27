@@ -28,6 +28,15 @@ BUTTONS
 TABLES
 
 */
+th:nth-child(1),
+th:nth-child(4),
+td:nth-child(1),
+td:nth-child(4) {
+  display: none; }
+
+.results-container {
+  padding: 20px; }
+
 /***************************************
 
 IMAGES
@@ -77,18 +86,21 @@ legend small {
 SEARCH
 
 */
-.results-container {
-  padding: 40px; }
-
 .results-header {
   position: relative; }
 
 .results-heading {
-  display: inline-block; }
+  display: inline-block;
+  float: left;
+  width: 65%;
+  font-size: 20.736px; }
 
 .alert-info {
   background-color: #ffffff;
   border-color: #ffffff; }
+
+#fav-save-alert {
+  display: inline-block; }
 
 /***************************************
 
@@ -112,10 +124,13 @@ DETAIL
   padding-bottom: 50px; }
 
 .detail {
-  text-decoration: underline; }
+  text-decoration: underline;
+  -webkit-transition: .278s;
+  -o-transition: .278s;
+  transition: .278s; }
   .detail:hover {
     cursor: pointer;
-    color: white; }
+    font-weight: 700; }
 
 #close-detail-container {
   position: absolute;
@@ -160,6 +175,9 @@ MAIN
 main {
   padding-bottom: 50px; }
 
+.container {
+  max-width: 1140px; }
+
 /***************************************
 
 JUMBOTRON
@@ -197,6 +215,15 @@ MEDIA QUERIES
     max-width: none; }
   .intro {
     padding: 60px 50px 0 50px; }
+  .results-heading {
+    font-size: 31.248px; }
+  th:nth-child(1),
+  th:nth-child(4),
+  td:nth-child(1),
+  td:nth-child(4) {
+    display: table-cell; }
+  .results-container {
+    padding: 40px; }
   .jumbotron {
     padding: 2rem; }
   .jumbotron .row {
