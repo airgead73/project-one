@@ -45,7 +45,7 @@ HEADER includes
     <!-- user sign up and log in -->
     
     <section class="container-fluid user-forms" id="user-forms">
-      <form class="container mt-5 user-form">
+      <form class="container user-form">
         <header class="row">
           <div class="col-12"> <img class="form-logo" src="assets/images/logo.svg" alt="MADSONGS Logo">
             <button type="button" id="close-user-forms" class="btn float-right">&times;</button>
@@ -211,15 +211,15 @@ MAIN includes
         <button type="button" id="close-detail-container" class="btn float-right">&times;</button>
         
         <div class="row">
-          <div class="col-12 col-lg-6" style="padding-top: 50px;">
-            <h2 class="text-center mt-5" id="detail-track"></h2>
-            <h3 class="text-center"><strong>Artist:</strong> <span id="detail-name"></span><strong> Album:</strong> <span id="detail-album"></span></h3>
+          <div class="col-12 col-lg-6">
+            <h2 class="text-center" id="detail-track"></h2>
+            <h3 class="text-center" id="detail-info"><strong>Artist:</strong> <span id="detail-name"></span><strong> Album:</strong> <span id="detail-album"></span></h3>
           </div>
           <!--col-->
           
           <div class="col-12 col-lg-6">
-            <div style="width: 400px; margin: 0 auto;">
-            <iframe id="vidHere" width="400" height="400" src=""></iframe>
+            <div class="iframe">
+            <iframe id="vidHere" src=""></iframe>
             
             </div>  
           </div>
