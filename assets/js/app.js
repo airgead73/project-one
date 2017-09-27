@@ -97,7 +97,7 @@ $('#fav-save').click(function () {
 	var userId = sessionStorage.getItem('userId');
 	if (userId === null) {
 		//alert("You need to log in to save a track");
-		$("#fav-save-alert").append("<p>You need to log in to save favorites</p>");
+		$("#fav-save-alert").text(" You need to log in to save favorites");
 		console.log("you need to login");
 	} else {
 		var currentTracks = [];
@@ -121,9 +121,7 @@ $('#fav-save').click(function () {
 			});
 		});
 		
-		$("#fav-save-alert").append("<p>Your favorites have been saved</p>");	
-
-		
+		$("#fav-save-alert").text(" Your favorites have been saved");		
 		setTimeout(emptyAlert, 2000);
 		
 	}
@@ -145,7 +143,7 @@ $("#searchButton").click(function () {
 
 //add search results when user hits enter with search field in focus
 $("#search").keypress(function(event){
-	if(event.which == 13) {
+	if(event.which === 13) {
 		$("#searchButton").click();
 	}
 });
