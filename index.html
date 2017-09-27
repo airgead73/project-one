@@ -206,39 +206,28 @@ MAIN includes
     <!--main content container-->
     
     <section class="container-fluid detail-container" id="detail-container">
-      <section class="container detail-wrapper">
-        <div class="row">
-          <div class="col-12 detail-header">
-            <h2 class="detail-heading" id="detail-track"></h2>
-            <button type="button" id="close-detail-container" class="btn float-right">&times;</button>
-          </div>
-          <!--col--> 
-        </div>
-        <!--row-->
+      <section class="container detail-wrapper"> 
+        <button type="button" id="close-detail-container" class="btn float-right">&times;</button>
         
         <div class="row">
-          <div class="col-4"> 
-          <a href="https://placeholder.com"><img id="detail-cover-art" class="img-fluid" src="http://via.placeholder.com/300x300" title="placeholder"></a>
-          </div><!--col-->
-          <div class="col-12 col-sm-4">
-            <h3>Artist</h3>
-            <p id="detail-name"></p>
-            <h3>Album</h3>
-            <p id="detail-album"></p>
-            <h3>Lyrics</h3>
-            <div id="detail-lyrics"> </div>
+          <div class="col-12 col-lg-6" style="padding-top: 50px;">
+            <h2 class="text-center mt-5" id="detail-track"></h2>
+            <p class="text-center"><strong>Artist:</strong> <span id="detail-name"></span><strong> Album:</strong> <span id="detail-album"></span></p>
           </div>
-          <!--col--> 
-          <div class="col-12 col-sm-4">
-          <h3>Video</h3>
-          <div>
-          	<iframe id="vidHere" width="300" height="300" src=""></iframe>
+          <!--col-->
+          
+          <div class="col-12 col-lg-6">
+            <div style="width: 400px; margin: 0 auto;">
+            <iframe id="vidHere" width="400" height="400" src=""></iframe>
+            
+            </div>  
           </div>
-          	
-          </div>
+          <!--col-->         
+        
         </div>
         <!--row--> 
-        </section>
+        
+      </section>
       <!--container--> 
       
     </section>
@@ -252,10 +241,10 @@ MAIN includes
   </section>
   <!--footer content container--> 
 </footer>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
 <!-- API Interface --> 
 <script type="application/javascript" src="assets/js/api_if.js"></script> 
 <!--Main Project Javascript--> 
-<script type="application/javascript" src="assets/js/app.js"></script> 
+<script type="application/javascript" src="assets/js/app.js"></script>
 </body>
 </html>
