@@ -37,12 +37,6 @@ TABLES
 IMAGES
 
 */
-.main-logo-img {
-  display: block;
-  width: 55%;
-  margin: 0 auto;
-  position: relative; }
-
 /***************************************
 
 FORMS
@@ -116,13 +110,19 @@ DETAIL
 .detail-heading {
   display: inline-block; }
 
-#results-items tr {
-  -webkit-transition: .278s;
-  -o-transition: .278s;
-  transition: .278s; }
-  #results-items tr:hover {
+.detail {
+  text-decoration: underline; }
+  .detail:hover {
     cursor: pointer;
-    background-color: #cdd5dc; }
+    color: white; }
+
+/***************************************
+
+FAVORITES
+
+*/
+.fav-heading {
+  color: green; }
 
 /***************************************
 
@@ -144,18 +144,6 @@ MAIN
 main {
   padding-bottom: 50px; }
 
-.intro p {
-  margin: 20px; }
-
-.jumbotron h2 {
-  display: none; }
-
-.alert-info {
-  background-color: #ffffff; }
-
-.span-mobile-only {
-  display: none; }
-
 /***************************************
 
 FOOTER
@@ -176,17 +164,7 @@ MEDIA QUERIES
     border-bottom: none;
     padding-right: 40px; }
   .user-form fieldset:last-of-type {
-    padding-left: 40px; }
-  .span-mobile-only {
-    display: inline; } }
-
-@media (min-width: 768px) {
-  .main-logo-img {
-    width: 100%; } }
-
-@media (min-width: 992px) {
-  .intro p {
-    margin: 120px 40px 0 40px; } }
+    padding-left: 40px; } }
 
 /***************************************
 
@@ -196,32 +174,19 @@ JS-BEHAVIOR
 *.js-inactive {
   display: none; }
 
+/* user forms */
 #user-forms {
   display: none; }
 
 #user-forms.js-active {
   display: block; }
 
+/* favorites */
 #favorites {
   display: none; }
 
-.js-active #favorites {
-  display: block; }
-  .js-active #favorites h2 {
-    display: block; }
-
-.jumbotron.js-active {
-  margin-top: 0;
-  padding-top: 0; }
-  .jumbotron.js-active h2 {
-    display: block; }
-
-.js-active .main-logo-img {
-  top: 10px; }
-
-.js-active .intro p {
-  display: none; }
-
+/* jumbotron */
+/* results */
 #results-container {
   display: none; }
 
