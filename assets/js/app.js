@@ -1,3 +1,6 @@
+////////////////////////////////////////////
+// html container variables
+
 var openAccess = $("#open-user-forms");
 var closeAccess = $("#close-user-forms");
 var profile = $("#profile");
@@ -8,6 +11,43 @@ var searchClose = $("#close-search-container");
 var detail = $("#detail-container");
 var detailClose = $("#close-detail-container");
 var video = $("#vidHere");
+
+////////////////////////////////////////////
+// general show/hide functions
+
+function changeUserStatus(username) {
+	var userStatus = $(openAccess).attr("data-status");
+	$(openAccess).attr("data-status", "logged");
+	$(openAccess).attr("value", username + ": log out");
+}
+
+function emptyAlert() {
+	$("#fav-save-alert").empty();
+}
+
+function open(elem) {
+	$(elem).addClass("js-active");
+}
+
+function close(elem) {
+	$(elem).removeClass("js-active");
+}
+
+function stopVideo(elem) {
+	$(elem).attr("src", " ");
+}
+
+function reset() {
+	$("#my-favs").empty();
+	$("#results-items").empty();
+	$("#search").val("");
+	$("#fav-save-alert").html("");
+	$("#login-alert").html("");
+	close(results);
+}
+
+////////////////////////////////////////////
+// firebase
 
 // Initialize Firebase
 var config = {
@@ -41,15 +81,10 @@ function getCurrentUser(u, cb) {
 	});
 }
 
-function changeUserStatus(username) {
-	var userStatus = $(openAccess).attr("data-status");
-	$(openAccess).attr("data-status", "logged");
-	$(openAccess).attr("value", username + ": log out");
-}
+////////////////////////////////////////////
+// event handlers
 
-function emptyAlert() {
-	$("#fav-save-alert").empty();
-}
+
 
 //sign in to application
 $("#login").on("click", function () {
@@ -120,10 +155,10 @@ $('#fav-save').click(function () {
 				}
 			});
 		});
-		
-		$("#fav-save-alert").text(" Your favorites have been saved");		
+
+		$("#fav-save-alert").text(" Your favorites have been saved");
 		setTimeout(emptyAlert, 2000);
-		
+
 	}
 });
 //add favorites to table
@@ -142,24 +177,11 @@ $("#searchButton").click(function () {
 });
 
 //add search results when user hits enter with search field in focus
-$("#search").keypress(function(event){
-	if(event.which === 13) {
+$("#search").keypress(function (event) {
+	if (event.which === 13) {
 		$("#searchButton").click();
 	}
 });
-
-function open(elem) {
-	$(elem).addClass("js-active");
-
-}
-
-function close(elem) {
-	$(elem).removeClass("js-active");
-}
-
-function stopVideo(elem) {
-	$(elem).attr("src", " ");
-}
 
 
 // When person clicks button at top right of page ...
@@ -209,16 +231,6 @@ $(searchClose).on("click", function (event) {
 	$(profile).removeClass("min-banner");
 });
 
-function reset() {
-	$("#my-favs").empty();
-	$("#results-items").empty();
-	$("#search").val("");
-	$("#fav-save-alert").html("");
-	$("#login-alert").html("");
-
-	close(results);
-}
-
 $("#my-favs").on("click", ".detail", function () {
 	console.log("Table row clicked");
 	var track = $(this).data("track");
@@ -242,6 +254,9 @@ $(detailClose).on("click", function () {
 	close(detail);
 	stopVideo(video);
 });
+
+////////////////////////////////////////////
+// document ready
 
 $(document).ready(function () {
 	var userId = sessionStorage.getItem('userId');
