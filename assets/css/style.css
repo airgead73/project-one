@@ -53,15 +53,13 @@ FORMS
 
 */
 .user-forms {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  position: relative;
+  -webkit-box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.23), 0 3px 12px rgba(0, 0, 0, 0.16);
   z-index: 3; }
 
 .user-form {
+  margin-top: .5rem;
   background-color: #ffffff;
   padding: 20px 20px 40px 20px; }
   .user-form fieldset {
@@ -119,8 +117,8 @@ DETAIL
 .detail-wrapper {
   position: relative;
   background-color: #ffffff;
-  margin-top: 75px;
-  padding-top: 75px;
+  margin-top: 10px;
+  padding-top: 10px;
   padding-bottom: 50px; }
 
 .detail {
@@ -139,13 +137,23 @@ DETAIL
 
 #vidHere {
   border: none;
+  width: 420px;
+  height: 420px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
   border-radius: 10px; }
 
+.iframe {
+  width: 350;
+  margin: 20px auto 0 auto; }
+
 #detail-track {
-  font-size: 54px;
-  font-weight: 800; }
+  font-size: 27.648px;
+  font-weight: 700; }
+
+#detail-info {
+  font-size: 23.04px;
+  font-weight: normal; }
 
 /***************************************
 
@@ -198,14 +206,36 @@ MEDIA QUERIES
 
 */
 @media (min-width: 576px) {
+  .user-forms {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+    z-index: 3; }
   .user-form fieldset:first-of-type {
     border-right: 2px solid #cdd5dc;
     border-bottom: none;
     padding-right: 40px; }
   .user-form fieldset:last-of-type {
-    padding-left: 40px; } }
+    padding-left: 40px; }
+  .detail-wrapper {
+    margin-top: 75px;
+    padding-top: 75px; }
+  #detail-track {
+    padding-top: 50px;
+    font-size: 45.232px;
+    font-weight: 800; }
+  #detail-info {
+    font-size: 23.04px;
+    font-weight: normal; } }
 
 @media (min-width: 768px) {
+  .user-form {
+    margin-top: 3rem; }
   .main-logo-img {
     margin: 0;
     max-width: 100%; }
