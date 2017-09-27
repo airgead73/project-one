@@ -137,22 +137,22 @@ DETAIL
 
 #vidHere {
   border: none;
-  width: 420px;
-  height: 420px;
+  width: 380px;
+  height: 380px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.23), 0 10px 40px rgba(0, 0, 0, 0.19);
   border-radius: 10px; }
 
 .iframe {
-  width: 350;
   margin: 20px auto 0 auto; }
 
 #detail-track {
-  font-size: 27.648px;
+  margin-top: 35px;
+  font-size: 20.736px;
   font-weight: 700; }
 
 #detail-info {
-  font-size: 23.04px;
+  font-size: 18.208px;
   font-weight: normal; }
 
 /***************************************
@@ -225,6 +225,9 @@ MEDIA QUERIES
   .detail-wrapper {
     margin-top: 75px;
     padding-top: 75px; }
+  #vidHere {
+    width: 500px;
+    height: 500px; }
   #detail-track {
     padding-top: 50px;
     font-size: 45.232px;
