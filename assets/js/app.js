@@ -137,7 +137,7 @@ $("#searchButton").click(function(){
 
 $("#search").on("keyup", function(event){
 	var thisKey = event.keyCode;
-	if (thisKey === 13) {
+	if (thisKey === 13 ) {
 		$("#results-items").empty();
 		var searchString = $("#search").val().trim();
 		console.log("my search " + searchString);
