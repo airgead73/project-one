@@ -124,7 +124,6 @@ MAIN includes
                     <th>song</th>
                     <th>artist</th>
                     <th>album</th>
-                    <th>year</th>
                   </tr>
                 </thead>
                 <tbody id="my-favs">
@@ -154,7 +153,7 @@ MAIN includes
         <section class="container results-container alert alert-info"  id="results-container">
           <div class="row">
             <div class="col-12 results-heading">
-              <h2 class="results-heading">Results for <span>{{term added dynamically?}}</span></h2>
+              <h2 class="results-heading">Results for <span id="searchterm"></span></h2>
               <button type="button" id="close-search-container" class="btn float-right">&times;</button>
             </div>
             <!--col--> 
@@ -172,7 +171,7 @@ MAIN includes
                       <th>song</th>
                       <th>artist</th>
                       <th>album</th>
-                      <th>year</th>
+                      <th>detail</th>
                       <th>fav</th>
                     </tr>
                   </thead>
@@ -209,7 +208,7 @@ MAIN includes
       <section class="container detail-wrapper">
         <div class="row">
           <div class="col-12 detail-header">
-            <h2 class="detail-heading">Details</h2>
+            <h2 class="detail-heading" id="detail-track"></h2>
             <button type="button" id="close-detail-container" class="btn float-right">&times;</button>
           </div>
           <!--col--> 
@@ -221,8 +220,6 @@ MAIN includes
           <a href="https://placeholder.com"><img id="detail-cover-art"class="img-fluid" src="http://via.placeholder.com/300x300" title="placeholder"></a>
           </div><!--col-->
           <div class="col-12 col-sm-4">
-            <h3>Track</h3>
-            <p id="detail-track"></p>
             <h3>Artist</h3>
             <p id="detail-name"></p>
             <h3>Album</h3>
