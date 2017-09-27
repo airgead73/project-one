@@ -17,7 +17,7 @@ var apiObj = {
 	track: '',
 
 	keywordSearch: function (searchString, apiName, searchParam) {
-		console.log("apiObj.keyworkSearch fn: searchString: ", searchString);
+		//console.log("apiObj.keyworkSearch fn: searchString: ", searchString);
 		apiName = (typeof apiName !== 'undefined') ?  apiName : 'musixmatch';						// default to musixMatch if no name is given
 		searchParam = (typeof searchParam !== 'undefined') ?  searchParam : 'page_size=10&page=1&s_track_rating=desc&';	// default to this if no param is given\
 
@@ -26,13 +26,13 @@ var apiObj = {
 		var searchType = getSearchType('keywordSearch');
 		var key = getKey(apiName);
 		queryString = baseUrl + searchType + 'q=' + searchString + '&' + searchParam + key;
-		console.log("apiObj.keywordSearch: queryString: ", queryString);
+		//console.log("apiObj.keywordSearch: queryString: ", queryString);
 
 		this.callAjax(queryString);
 	},
 
 	songSearch: function (searchString, apiName, searchParam) {
-		console.log("apiObj.songSearch fn: searchString: ", searchString);
+		//console.log("apiObj.songSearch fn: searchString: ", searchString);
 		apiName = (typeof apiName !== 'undefined') ?  apiName : 'musixmatch';		// default to musixMatch if no name is given
 		searchParam = (typeof searchParam !== 'undefined') ?  searchParam : '';	// default to this if no param is given\
 
@@ -41,7 +41,7 @@ var apiObj = {
 		var searchType = getSearchType('songSearch');
 		var key = getKey(apiName);
 		queryString = baseUrl + searchType + 'track_id=' + searchString + '&' + searchParam + key;
-		console.log("apiObj.songSearch: queryString: ", queryString);
+		//console.log("apiObj.songSearch: queryString: ", queryString);
 
 		this.callAjax(queryString);
 	},
@@ -120,8 +120,7 @@ var apiObj = {
           	url: queryString,
           	method: "GET"    
         	}).done(function(response) {
-            	apiObj.processResponse(response);		// doesn't work with 'this'(type error) - says it's not a function 
-            	//fooDone(response);			// works           	
+            	apiObj.processResponse(response);		// doesn't work with 'this'(type error) - says it's not a function          	
     	});
 
 	},
@@ -140,24 +139,8 @@ var apiObj = {
 		};
 	},
 
-	buildTrack2: function(item) {
-		console.log(item);
-		return {
-			cover_art: item.album_coverart_100x100,
-			artist_name: item.artist_name,
-			track_id: item.track_id,
-			track_name: item.track_name,
-			lyrics_id: item.lyrics_id,
-			album_id: item.album_id,
-			album_name: item.album_name,
-			album_art: item.album_coverart_100x100
-		};
-	},
-
-
+	
 	processResponse: function (response) {
-
-		//var myResponse = response;
 
 		console.log ("apiObj: processResponse: response", response);
 
@@ -166,17 +149,7 @@ var apiObj = {
 		};
 
 		if (response.message.body.hasOwnProperty('track_list')) {
-			//console.log ("apiObj: processResponse.message.body.track_list: ", response.message.body.track_list);
-			//console.log ("apiObj: processResponse.message.body.track_list[0]: ", response.message.body.track_list[0]);
-			//console.log ("apiObj: processResponse.message.body.track_list[0].track: ", response.message.body.track_list[0].track);
-			//console.log ("apiObj: processResponse.message.body.track_list[0].track.track_id: ", response.message.body.track_list[0].track.track_id);
 
-			// this.track_id = response.message.body.track_list[0].track.track_id;
-			// this.track_name	= response.message.body.track_list[0].track.track_name;
-			// this.lyrics_id = response.message.body.track_list[0].track.lyrics_id;
-			// this.album_id = response.message.body.track_list[0].track.album_id;
-			// this.album_name = response.message.body.track_list[0].track.album_name;
-			// this.album_art = response.message.body.track_list[0].track.album_coverart_100x100;
 			this.tracks = [];
 			for (var i = 0; i < response.message.body.track_list.length; i++) {
 				this.tracks.push( this.buildTrack(response.message.body.track_list[i]) );
@@ -187,29 +160,14 @@ var apiObj = {
 		};
 
 		if (response.message.body.hasOwnProperty('track')) {
-			//console.log ("apiObj: processResponse.message.body.track_list: ", response.message.body.track_list);
-			//console.log ("apiObj: processResponse.message.body.track_list[0]: ", response.message.body.track_list[0]);
-			//console.log ("apiObj: processResponse.message.body.track_list[0].track: ", response.message.body.track_list[0].track);
-			//console.log ("apiObj: processResponse.message.body.track_list[0].track.track_id: ", response.message.body.track_list[0].track.track_id);
 
-			// this.track_id = response.message.body.track_list[0].track.track_id;
-			// this.track_name	= response.message.body.track_list[0].track.track_name;
-			// this.lyrics_id = response.message.body.track_list[0].track.lyrics_id;
-			// this.album_id = response.message.body.track_list[0].track.album_id;
-			// this.album_name = response.message.body.track_list[0].track.album_name;
-			// this.album_art = response.message.body.track_list[0].track.album_coverart_100x100;
 			this.track = this.buildTrack(response.message.body);
 
 			console.log('TRACK: ', this.track);
 			this.showTrack(this.track, "#my-favs");
-			//this.showTracks(this.tracks, "#results-items");
 		};
 
 		if (response.message.body.hasOwnProperty('artist_list')) {
-			//console.log ("apiObj: processResponse.message.body.artist_list: ", response.message.body.artist_list);
-			//console.log ("apiObj: processResponse.message.body.artist_list[0]: ", response.message.body.artist_list[0]);
-			//console.log ("apiObj: processResponse.message.body.artist_list[0].artist: ", response.message.body.artist_list[0].artist);
-			//console.log ("apiObj: processResponse.message.body.artist_list[0].artist.artist_id: ", response.message.body.artist_list[0].artist.artist_id);
 
 			this.artist_id = response.message.body.artist_list[0].artist.artist_id;
 			this.artist_name	= response.message.body.artist_list[0].artist.artist_name;
@@ -218,7 +176,6 @@ var apiObj = {
 		};	
 
 		if (response.message.body.hasOwnProperty('lyrics')) {
-			//console.log ("apiObj: processResponse.message.body.lyrics: ", response.message.body.lyrics);
 
 			this.lyrics_body = response.message.body.lyrics.lyrics_body;
 
@@ -226,9 +183,8 @@ var apiObj = {
 
 		};
 
-		//console.log("Object.keys: ", Object.keys(response)); // shows single key "message" in red
-
 	},
+	
 	populateTrackDetail: function(track){
 			$("#detail-track").html(track.track_name);
 			$("#detail-name").html(track.artist_name);
@@ -238,22 +194,8 @@ var apiObj = {
 	},
 
 	showTrack: function(track, target){
-		console.log("track: ", track);
-		console.log("target: ", target);
-		console.log("\n");
-		console.log("======================================");
-		console.log("          API DATA");
-		console.log("======================================");
-		console.log("\t" + "artist_id: ", this.artist_id);		
-		console.log("\t" + "artist_name: ", this.artist_name);		
-		console.log("\t" + "album_id: ", this.album_id);		
-		console.log("\t" + "album_name: ", this.album_name);		
-		console.log("\t" + "album_art: ", this.album_art);		
-		console.log("\t" + "track_id: ", this.track_id);		
-		console.log("\t" + "track_name: ", this.track_name);		
-		console.log("\t" + "lyrics_id: ", this.lyrics_id);		
-		console.log("\t" + "lyrics_body: ", this.lyrics_body);	
-		console.log('\n');
+		//console.log("track: ", track);
+		//console.log("target: ", target);
 
 		$(target).append(
 			$('<tr>')
@@ -276,67 +218,7 @@ var apiObj = {
 		}
 	},
 
-	clearApiData: function () {
-		//console.log("clearApiData function called");
-
-		artist_id = null;		
-		artist_name = "";	
-		album_id = null;	
-		album_name = "";		
-		album_art =	"";	
-		track_id = null;	
-		track_name = "";		
-		lyrics_id =	null;
-		lyrics_body = "";
-		album_year: "";	
-	
-	},
-
-	firstLevelFunction: function () {
-
-		this.helperFn = function (value) {
-			this.something = value;
-			return this;
-		};
-	},
-
-	helperFn: function () {
-		console.log("In helperFn: ");
-	},
-
-	//apiData: {
-
-		artist_id: 0,
-		artist_name: "",
-		album_id: 0,
-		album_name: "",
-		album_art: "",
-		track_id: 0,
-		track_name: "",
-		lyrics_id: 12345,
-		lyrics_body: "Oh baby baby",
-		album_year: "1955",
-
-	//},
-
 };	// apiObject
-
-Object.get = function(object, property) {
-    var properties = property.split('.');
-    for (var i = 0; i < properties.length; i++) {
-        if (object && object[properties[i]]) {
-            object = object[properties[i]];
-        }
-        else {
-            return null;
-        }
-    }
-    return object;
-},
-
-function fooDone (response) {
-	console.log ("fooDone: ", JSON.parse(response));
-};
 
 /**
  * Plain Vanilla Functions - you can call these on their own to return a result string 
@@ -453,9 +335,9 @@ function getBaseUrl (apiName) {
 			console.log("Error: invalid apiName parameter passed to function getBaseUrl")
 	}	// switch
 
-    console.log("proxy: ", proxy);
-    console.log("baseUrl: ", baseUrl);
-    console.log("proxy + baseUrl", proxy + baseUrl);
+    //console.log("proxy: ", proxy);
+    //console.log("baseUrl: ", baseUrl);
+    //console.log("proxy + baseUrl", proxy + baseUrl);
 
     return (proxy + baseUrl);	
 }	// function getBaseUrl()
@@ -485,14 +367,14 @@ function getKey(apiName) {
 			console.log("Error: invalid apiName parameter passed to function getKey")
 	}	// switch
 
-    console.log("getKey function: key: ", thekey);
+    //console.log("getKey function: key: ", thekey);
 
     return (thekey);	
 } // getKey()
 
 function getSearchType (searchType, secondParam) {
-	console.log("getSearchType function searchType: ", searchType);
-	console.log("getSearchType function secondParam: ", secondParam);
+	//console.log("getSearchType function searchType: ", searchType);
+	//console.log("getSearchType function secondParam: ", secondParam);
 
 	var searchType = searchType; // does it work without this line?
 
@@ -519,7 +401,7 @@ function getSearchType (searchType, secondParam) {
 			console.log("Error: invalid seachType parameter passed to function getsearchType")
 	}	// switch
 
-    console.log("searchTypeString: ", searchTypeString);
+    //console.log("searchTypeString: ", searchTypeString);
     return (searchTypeString);	
 }	// function getsearchType()
 
@@ -528,25 +410,24 @@ function callAjax (queryString) {
 
 	var queryString = queryString;
 
-    console.log("callAjax function: queryString: ", queryString);
+    //console.log("callAjax function: queryString: ", queryString);
 
 	$.ajax({
 		  dataType: 'json',		// otherwise you get a very long char array!
           url: queryString,
           method: "GET"    
         }).done(function(response) {
-            console.log("callAjax: response: ", JSON.parse(response));
+            //console.log("callAjax: response: ", JSON.parse(response));
             gblResponse = response;								// any reason we can't do this?
     });
 
 }
 
 
-//$(document).on("click", <"h1">, queryApi(musixMatch, chartartistsget));
-//$(document).ready(function(){
+// FOR DEBUG ONLY
     $(".team-name").click(function() {
     	//apiObj.keywordSearch("sun");    	
-    	apiObj.songSearch("15445219");
+    	//apiObj.songSearch("15445219");
     	//apiObj.artistSearch("Van Morrison");
     	//apiObj.lyricsSearch(15953433);
     	//apiObj.countrySearch("it");
