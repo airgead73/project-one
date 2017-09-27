@@ -140,6 +140,21 @@ var apiObj = {
 		};
 	},
 
+	buildTrack2: function(item) {
+		console.log(item);
+		return {
+			cover_art: item.album_coverart_100x100,
+			artist_name: item.artist_name,
+			track_id: item.track_id,
+			track_name: item.track_name,
+			lyrics_id: item.lyrics_id,
+			album_id: item.album_id,
+			album_name: item.album_name,
+			album_art: item.album_coverart_100x100
+		};
+	},
+
+
 	processResponse: function (response) {
 
 		//var myResponse = response;
@@ -183,7 +198,7 @@ var apiObj = {
 			// this.album_id = response.message.body.track_list[0].track.album_id;
 			// this.album_name = response.message.body.track_list[0].track.album_name;
 			// this.album_art = response.message.body.track_list[0].track.album_coverart_100x100;
-			this.track = this.buildTrack(response.message.body);
+			this.track = this.buildTrack2(response.message.body);
 
 			console.log('TRACK: ', this.track);
 			this.showTrack(this.track, "#my-favs");
