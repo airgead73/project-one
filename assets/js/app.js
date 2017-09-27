@@ -32,17 +32,18 @@ function getCurrentUser(u, cb) {
         var sv = snapshot.val();
         var userId = snapshot.key;       
         sessionStorage.setItem('userId', userId);
-        changeUserStatus();
+        sessionStorage.setItem('username', u);
+        changeUserStatus(username);
         var newStatus = $(openAccess).attr("data-status");
         console.log("Log in was clicked. User status is now " + newStatus +"."); 
         cb(sv);
     });
 }
 
-function changeUserStatus() {
+function changeUserStatus(username) {
     var userStatus = $(openAccess).attr("data-status");
     $(openAccess).attr("data-status", "logged");
-    $(openAccess).attr("value", "log out");
+    $(openAccess).attr("value", username + ": log out");
 }
 
 //sign in to application
@@ -114,7 +115,7 @@ $('#fav-save').click(function() {
 //add favorites to table
 function writeFavorites(tracks){
     $("#my-favs")
-    .append("<tr><td>"+tracks+"</td><td>Track Name</td><td>Artist</td><td>Album</td><td>Year</td></tr>");
+    .append("<tr><td>"+tracks+"</td><td>Track Name</td><td>Artist</td><td>Album</td></tr>");
 }
 
 //code to write search results to the table, will be a function 
@@ -122,6 +123,7 @@ $("#searchButton").click(function(){
     $("#results-items").empty();
     var searchString = $("#search").val().trim();
     console.log("my search " + searchString);
+    $("#searchterm").html(searchString);
     apiObj.keywordSearch(searchString);    
 });
 
@@ -193,18 +195,21 @@ $(detailClose).on("click", function(){
 
 $(document).ready(function(){
     var userId = sessionStorage.getItem('userId');
+    var username = sessionStorage.getItem('username');
     if(userId === null){
         console.log("user is not logged in");
     }else{
-        changeUserStatus();
+        changeUserStatus(username);
         var newStatus = $(openAccess).attr("data-status");
         console.log("User status is " + newStatus +".");
+        open(profile);
         var currentTracks = [];
         database.ref('users').child(userId).once('value').then(function(snapshot) {
             var sv = snapshot.val();
             for(var key in sv.tracks) {
-               writeFavorites(sv.tracks[key]);
-               console.log(sv.tracks[key]);
+                //apiObj.songSearch(sv.tracks[key]);
+                writeFavorites(sv.tracks[key]);
+                console.log("track key: " + sv.tracks[key]);
             }        
         });
     }

@@ -225,7 +225,6 @@ var apiObj = {
 				.append('<td>' + track.track_name + '</td>')
 				.append('<td>' + track.artist_name + '</td>')
 				.append('<td>' + track.album_name + '</td>')
-				.append('<td>' + track.lyrics_id + '</td>')
 			    .append($('<td class="detail">').text("detail").data('track', track).data('track-name', track.track_name))
 				.append('<td><input type="checkbox" class="fav" data-for="' + track.track_id + '" type="checkbox"></td>')
 			);
