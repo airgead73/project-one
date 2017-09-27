@@ -7,6 +7,7 @@ var searchOpen = $("#searchButton");
 var searchClose = $("#close-search-container");
 var detail = $("#detail-container");
 var detailClose = $("#close-detail-container");
+var video = $("#vidHere");
 
 // Initialize Firebase
 var config = {
@@ -140,6 +141,10 @@ function close(elem) {
     $(elem).removeClass("js-active");
 }
 
+function stopVideo(elem) {
+	$(elem).attr("src", " ");
+}
+
 
 // When person clicks button at top right of page ...
 $(openAccess).on("click", function(){
@@ -216,7 +221,8 @@ $("#results-items").on("click", ".detail", function(){
 
 $(detailClose).on("click", function(){
     console.log("Closing detail");
-    close(detail);  
+    close(detail);
+	stopVideo(video);
 });
 
 $(document).ready(function(){
